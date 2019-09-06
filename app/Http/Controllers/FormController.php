@@ -20,6 +20,11 @@ class FormController extends Controller
         if (!$form->isValid()) {
             return redirect()->back()->withErrors($form->getErrors())->withInput();
         }
+
+        // all good, this would need to be submitted
+        // TODO
+
+        dd($request->all());
     }
 
     /**
