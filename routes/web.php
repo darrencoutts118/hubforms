@@ -11,9 +11,11 @@
 |
 */
 
+use App\Models\Form;
+
 Route::get('/', function () {
-    return redirect()->route('form');
+    return redirect()->route('form', Form::first());
 });
 
-Route::get('/form', 'FormController@show')->name('form');
-Route::post('/form', 'FormController@store')->name('form.submit');
+Route::get('/form/{form}', 'FormController@show')->name('form');
+Route::post('/form/{form}', 'FormController@store')->name('form.submit');

@@ -49,7 +49,7 @@
                 <div class="col-8 offset-2">
                     <div class="card">
                         <div class="card-header">
-                            Form
+                            {{ $form->title }}
                         </div>
                         <div class="card-body">
                             @if ($errors->any())
@@ -62,7 +62,8 @@
                                     </ul>
                                 </div>
                             @endif
-                            {!! form($form) !!}
+                            {{ $form->intro }}
+                            {!! form($form->html) !!}
                         </div>
                     </div>
                     <p class="text-center text-muted mt-4 small">Powered by {{ config('app.name', 'Laravel') }}.</p>

@@ -9,7 +9,9 @@ class Form extends BaseForm
 {
     public function buildForm()
     {
-        $fields = Field::all();
+        $form = request()->form;
+
+        $fields = $form->fields;
 
         foreach ($fields as $field) {
             $this->add($field->name, $field->type, [

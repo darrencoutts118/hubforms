@@ -40,11 +40,12 @@ class FieldsSeeder extends Seeder
         ];
 
         foreach ($fields as $name => $field) {
-            $model        = new FieldModel;
-            $model->name  = $name;
-            $model->title = $field['title'];
-            $model->type  = $field['type'];
-            $model->rules = $field['rules'];
+            $model          = new FieldModel;
+            $model->form_id = 1;
+            $model->name    = $name;
+            $model->title   = $field['title'];
+            $model->type    = $field['type'];
+            $model->rules   = $field['rules'];
             $model->save();
         }
     }

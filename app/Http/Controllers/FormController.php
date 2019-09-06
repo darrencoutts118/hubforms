@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Form;
 use App\Models\Submission;
 use Illuminate\Http\Request;
 use Kris\LaravelFormBuilder\FormBuilder;
@@ -14,16 +15,13 @@ class FormController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, FormBuilder $formBuilder)
+    public function store(Request $request, Form $form, FormBuilder $formBuilder)
     {
         $form = $formBuilder->create(\App\Forms\Form::class);
 
         if (!$form->isValid()) {
             return redirect()->back()->withErrors($form->getErrors())->withInput();
         }
-
-        // all good, this would need to be submitted
-        // TODO
 
         $submission = new Submission;
 
@@ -35,7 +33,7 @@ class FormController extends Controller
 
         $submission->save();
 
-        return redirect()->route('form')->withSuccess('You have successfully submitted the form.');
+        return redirect()->back()->withSuccess('You have successfully submitted the form.');
     }
 
     /**
@@ -43,11 +41,11 @@ class FormController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, FormBuilder $formBuilder)
+    public function show(Request $request, Form $form, FormBuilder $formBuilder)
     {
-        $form = $formBuilder->create(\App\Forms\Form::class, [
+        $form->html = $formBuilder->create(\App\Forms\Form::class, [
             'method' => 'POST',
-            'url' => route('form.submit')
+            'url' => route('form.submit', $form)
         ]);
 
         return view('form', compact('form'));
