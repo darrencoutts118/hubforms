@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d77bd630f2cf57214b190d462c88e582",
+    "content-hash": "35d09dda23cc0a8858934ea80f3bcb79",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -467,6 +467,59 @@
             ],
             "description": "Highlight PHP code in terminal",
             "time": "2018-09-29T18:48:56+00:00"
+        },
+        {
+            "name": "kodeine/laravel-meta",
+            "version": "dev-patch-1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/darrencoutts118/laravel-meta.git",
+                "reference": "c86e05297a0c1ab72202a8d1e5230718f4a7681b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/darrencoutts118/laravel-meta/zipball/c86e05297a0c1ab72202a8d1e5230718f4a7681b",
+                "reference": "c86e05297a0c1ab72202a8d1e5230718f4a7681b",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5.0|~5.1|^6.0",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [],
+                "psr-0": {
+                    "Kodeine\\Metable\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ahsen M.",
+                    "homepage": "https://github.com/kodeine",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Fluent Meta Data for Eloquent Models, as if it is a property on your model.",
+            "keywords": [
+                "data",
+                "eloquent",
+                "kodeine",
+                "laravel",
+                "meta",
+                "meta data",
+                "metable",
+                "metadata",
+                "metas",
+                "model"
+            ],
+            "support": {
+                "source": "https://github.com/darrencoutts118/laravel-meta/tree/patch-1"
+            },
+            "time": "2019-09-06T18:51:41+00:00"
         },
         {
             "name": "kris/laravel-form-builder",
@@ -4912,7 +4965,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "kodeine/laravel-meta": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
