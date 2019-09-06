@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Submission;
 use Illuminate\Http\Request;
 use Kris\LaravelFormBuilder\FormBuilder;
 
@@ -24,7 +25,17 @@ class FormController extends Controller
         // all good, this would need to be submitted
         // TODO
 
-        dd($request->all());
+        $submission = new Submission;
+
+        $submission->form_id = 1;
+
+        foreach ($request->except(['_token']) as $key => $value) {
+            $submission->{$key} = $value;
+        }
+
+        $submission->save();
+
+        return redirect()->route('form')->withSuccess('You have successfully submitted the form.');
     }
 
     /**
@@ -32,7 +43,7 @@ class FormController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function show(FormBuilder $formBuilder)
+    public function show(Request $request, FormBuilder $formBuilder)
     {
         $form = $formBuilder->create(\App\Forms\ContactForm::class, [
             'method' => 'POST',
