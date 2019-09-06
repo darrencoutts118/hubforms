@@ -11,6 +11,7 @@ class SongForm extends Form
         $this
             ->add('name', 'text')
             ->add('lyrics', 'textarea')
-            ->add('publish', 'checkbox');
+            ->add('publish', 'checkbox')
+            ->add('submit', 'submit');
     }
 }
