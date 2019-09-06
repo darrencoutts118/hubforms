@@ -22,6 +22,6 @@ class SongForm extends Form
             ->add('publish', Field::CHECKBOX, [
                 'rules' => 'required'
             ])
-            ->add('submit', 'submit');
+            ->add('submit', 'submit', ['attr' => ['class' => 'btn btn-primary']]);
     }
 }
