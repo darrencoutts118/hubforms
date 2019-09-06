@@ -36,7 +36,7 @@ class FormController extends Controller
     {
         $form = $formBuilder->create(\App\Forms\SongForm::class, [
             'method' => 'POST',
-            'url' => '/form'
+            'url' => route('form.submit')
         ]);
 
         return view('form', compact('form'));
