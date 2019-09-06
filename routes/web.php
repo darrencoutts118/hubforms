@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('form');
 });
 
 Route::get('/form', 'FormController@show')->name('form');
