@@ -29,7 +29,7 @@ class FieldsSeeder extends Seeder
             'phone' => [
                 'title' => 'Phone',
                 'type'  => Field::TEXT,
-                'rules' => 'number',
+                'rules' => 'required',
             ],
 
             'message' => [
