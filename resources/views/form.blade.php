@@ -15,7 +15,6 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -45,9 +44,9 @@
             </div>
         </nav>
 
-        <main class="container">
+        <main class="container py-4">
             <div class="row">
-                <div class="col-12">
+                <div class="col-8 offset-2">
                     <div class="card">
                         <div class="card-header">
                             Form
@@ -55,6 +54,7 @@
                         <div class="card-body">
                             @if ($errors->any())
                                 <div class="alert alert-danger">
+                                    <p><strong>Oops, something went wrong</strong></p>
                                     <ul>
                                         @foreach ($errors->all() as $error)
                                             <li>{{ $error }}</li>
@@ -65,6 +65,7 @@
                             {!! form($form) !!}
                         </div>
                     </div>
+                    <p class="text-center text-muted mt-4 small">Powered by {{ config('app.name', 'Laravel') }}.</p>
                 </div>
             </div>
         </main>
