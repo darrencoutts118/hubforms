@@ -15,7 +15,7 @@ class FormController extends Controller
      */
     public function store(Request $request, FormBuilder $formBuilder)
     {
-        $form = $formBuilder->create(\App\Forms\SongForm::class);
+        $form = $formBuilder->create(\App\Forms\ContactForm::class);
 
         if (!$form->isValid()) {
             return redirect()->back()->withErrors($form->getErrors())->withInput();
@@ -34,7 +34,7 @@ class FormController extends Controller
      */
     public function show(FormBuilder $formBuilder)
     {
-        $form = $formBuilder->create(\App\Forms\SongForm::class, [
+        $form = $formBuilder->create(\App\Forms\ContactForm::class, [
             'method' => 'POST',
             'url' => route('form.submit')
         ]);
