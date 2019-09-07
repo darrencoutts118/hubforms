@@ -72,8 +72,13 @@
             </div>
         </nav>
 
-        <main class="py-4">
-            @yield('content')
+        <main class="container py-4">
+            <div class="row">
+                <div class="col-8 offset-2">
+                    @yield('content')
+                    <p class="text-center text-muted mt-4 small">Powered by {{ config('app.name', 'Laravel') }}.</p>
+                </div>
+            </div>
         </main>
     </div>
 </body>
