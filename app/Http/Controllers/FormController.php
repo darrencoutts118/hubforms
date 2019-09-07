@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Form;
 use App\Models\Submission;
 use Illuminate\Http\Request;
-use Kris\LaravelFormBuilder\FormBuilder;
 
 class FormController extends Controller
 {
@@ -15,12 +14,12 @@ class FormController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Form $form, FormBuilder $formBuilder)
+    public function store(Request $request, Form $form)
     {
-        $form = $formBuilder->create(\App\Forms\Form::class);
+        $builder = $form->getBuilder();
 
-        if (!$form->isValid()) {
-            return redirect()->back()->withErrors($form->getErrors())->withInput();
+        if (!$builder->isValid()) {
+            return redirect()->back()->withErrors($builder->getErrors())->withInput();
         }
 
         $submission = new Submission;
@@ -41,13 +40,8 @@ class FormController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, Form $form, FormBuilder $formBuilder)
+    public function show(Request $request, Form $form)
     {
-        $form->html = $formBuilder->create(\App\Forms\Form::class, [
-            'method' => 'POST',
-            'url' => route('form.submit', $form)
-        ]);
-
         return view('form', compact('form'));
     }
 }

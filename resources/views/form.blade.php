@@ -63,7 +63,7 @@
                                 </div>
                             @endif
                             {{ $form->intro }}
-                            {!! form($form->html) !!}
+                            {!! form($form->getBuilder()) !!}
                         </div>
                     </div>
                     <p class="text-center text-muted mt-4 small">Powered by {{ config('app.name', 'Laravel') }}.</p>
