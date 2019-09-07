@@ -40,6 +40,6 @@ class FormController extends Controller
      */
     public function show(Request $request, Form $form)
     {
-        return view('form', compact('form'));
+        return view('form.show', compact('form'));
     }
 }
