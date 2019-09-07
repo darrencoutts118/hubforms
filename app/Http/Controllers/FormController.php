@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\FormSubmissionRequest;
 use App\Models\Form;
 use App\Models\Submission;
 use Illuminate\Http\Request;
@@ -11,20 +12,15 @@ class FormController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\FormSubmissionRequest $request
+     * @param  \App\Models\Form                         $form
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Form $form)
+    public function store(FormSubmissionRequest $request, Form $form)
     {
-        $builder = $form->getBuilder();
-
-        if (!$builder->isValid()) {
-            return redirect()->back()->withErrors($builder->getErrors())->withInput();
-        }
-
         $submission = new Submission;
 
-        $submission->form_id = 1;
+        $submission->form_id = $form->id;
 
         foreach ($request->except(['_token']) as $key => $value) {
             $submission->{$key} = $value;
@@ -38,6 +34,8 @@ class FormController extends Controller
     /**
      * Display the specified resource.
      *
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\Form         $form
      * @return \Illuminate\Http\Response
      */
     public function show(Request $request, Form $form)
