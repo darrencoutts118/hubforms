@@ -2,32 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\FormSubmissionRequest;
+use App\Models\Form;
 use App\Models\Submission;
 use Illuminate\Http\Request;
-use Kris\LaravelFormBuilder\FormBuilder;
 
 class FormController extends Controller
 {
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\FormSubmissionRequest $request
+     * @param  \App\Models\Form                         $form
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, FormBuilder $formBuilder)
+    public function store(FormSubmissionRequest $request, Form $form)
     {
-        $form = $formBuilder->create(\App\Forms\ContactForm::class);
-
-        if (!$form->isValid()) {
-            return redirect()->back()->withErrors($form->getErrors())->withInput();
-        }
-
-        // all good, this would need to be submitted
-        // TODO
-
         $submission = new Submission;
 
-        $submission->form_id = 1;
+        $submission->form_id = $form->id;
 
         foreach ($request->except(['_token']) as $key => $value) {
             $submission->{$key} = $value;
@@ -35,21 +28,18 @@ class FormController extends Controller
 
         $submission->save();
 
-        return redirect()->route('form')->withSuccess('You have successfully submitted the form.');
+        return view('form.submitted', compact('form', 'submission'));
     }
 
     /**
      * Display the specified resource.
      *
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\Form         $form
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, FormBuilder $formBuilder)
+    public function show(Request $request, Form $form)
     {
-        $form = $formBuilder->create(\App\Forms\ContactForm::class, [
-            'method' => 'POST',
-            'url' => route('form.submit')
-        ]);
-
-        return view('form', compact('form'));
+        return view('form.show', compact('form'));
     }
 }
