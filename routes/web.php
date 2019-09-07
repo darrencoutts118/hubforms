@@ -19,3 +19,7 @@ Route::get('/', function () {
 
 Route::get('/form/{form}', 'FormController@show')->name('form');
 Route::post('/form/{form}', 'FormController@store')->name('form.submit');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
