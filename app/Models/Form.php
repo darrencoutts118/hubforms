@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Forms\Form as BaseForm;
 use Illuminate\Database\Eloquent\Model;
 use Kris\LaravelFormBuilder\FormBuilder;
+use Str;
 
 class Form extends Model
 {
@@ -13,13 +14,27 @@ class Form extends Model
         'fields'
     ];
 
+    /*public function getRouteKeyName()
+    {
+        return 'uuid';
+    }*/
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($form) {
+            $form->uuid = (string) Str::uuid();
+        });
+    }
+
     public function getBuilder()
     {
         $formBuilder = app(FormBuilder::class);
 
         return $formBuilder->create(BaseForm::class, [
             'method' => 'POST',
-            'url' => route('form.submit', $this)
+            'url'    => route('form.submit', $this)
         ]);
     }
 

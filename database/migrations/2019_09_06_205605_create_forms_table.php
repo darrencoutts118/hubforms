@@ -15,6 +15,7 @@ class CreateFormsTable extends Migration
     {
         Schema::create('forms', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->uuid('uuid');
             $table->string('title');
             $table->text('intro')->nullable();
             $table->string('notification')->nullable();
