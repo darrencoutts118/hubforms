@@ -16,5 +16,9 @@ class FormSeeder extends Seeder
         $form = new Form;
         $form->title = 'Example Form';
         $form->save();
+
+        $form = new Form;
+        $form->title = 'Enquiry Form';
+        $form->save();
     }
 }
