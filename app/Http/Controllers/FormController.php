@@ -28,7 +28,7 @@ class FormController extends Controller
 
         $submission->save();
 
-        return redirect()->back()->withSuccess('You have successfully submitted the form.');
+        return view('form.submitted', compact('form', 'submission'));
     }
 
     /**
