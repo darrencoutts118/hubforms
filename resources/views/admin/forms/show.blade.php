@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="card mb-4">
+<div class="card mb-3">
     <div class="card-header">
         <p>{{ $form->title }}</p>
         <ul class="nav nav-tabs card-header-tabs">
@@ -35,10 +35,11 @@
                 <div class="strong">Last Submission</div>
             </div>
         </div>
+        <p><a href="{{ route('admin.forms.edit', $form) }}">Edit Form</a></p>
     </div>
 </div>
 
-<div class="card mb-4">
+<div class="card mb-3">
     <div class="card-header">
         Recent Submimssions
     </div>

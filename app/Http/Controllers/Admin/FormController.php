@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Forms\FormForm;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\FormCreateRequest;
+use App\Http\Requests\FormUpdateRequest;
 use App\Models\Form;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use Kris\LaravelFormBuilder\FormBuilder;
 
 class FormController extends Controller
 {
@@ -26,9 +30,15 @@ class FormController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(FormBuilder $formBuilder)
     {
         //
+        $createForm = $formBuilder->create(FormForm::class, [
+            'method' => 'POST',
+            'url'    => route('admin.forms.store'),
+        ]);
+
+        return view('admin.forms.create', compact('createForm'));
     }
 
     /**
@@ -37,9 +47,14 @@ class FormController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(FormCreateRequest $request)
     {
         //
+        $form = new Form;
+        $form->fill($request->all());
+        $form->save();
+
+        return redirect()->route('admin.forms.show', $form)->with('success', 'Form successfully created');
     }
 
     /**
@@ -60,9 +75,16 @@ class FormController extends Controller
      * @param  \App\Models\Form  $form
      * @return \Illuminate\Http\Response
      */
-    public function edit(Form $form)
+    public function edit(Form $form, FormBuilder $formBuilder)
     {
         //
+        $editForm = $formBuilder->create(FormForm::class, [
+            'method' => 'PUT',
+            'model'  => $form,
+            'url'    => route('admin.forms.update', $form),
+        ]);
+
+        return view('admin.forms.edit', compact('form', 'editForm'));
     }
 
     /**
@@ -72,9 +94,13 @@ class FormController extends Controller
      * @param  \App\Models\Form  $form
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Form $form)
+    public function update(FormUpdateRequest $request, Form $form)
     {
         //
+        $form->fill($request->all());
+        $form->save();
+
+        return redirect()->route('admin.forms.show', $form)->with('success', 'Form successfully updated');
     }
 
     /**

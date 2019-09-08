@@ -14,6 +14,11 @@ class Form extends Model
         'fields'
     ];
 
+    protected $fillable = [
+        'title',
+        'intro',
+    ];
+
     /*public function getRouteKeyName()
     {
         return 'uuid';
