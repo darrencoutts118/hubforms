@@ -15,7 +15,10 @@ class FormController extends Controller
      */
     public function index()
     {
-        //
+        // show all of the froms
+        $forms = Form::paginate();
+
+        return view('admin.forms.index', compact('forms'));
     }
 
     /**
@@ -47,7 +50,8 @@ class FormController extends Controller
      */
     public function show(Form $form)
     {
-        //
+        // show this form
+        return view('admin.forms.show', compact('form'));
     }
 
     /**
