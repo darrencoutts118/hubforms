@@ -68,7 +68,7 @@
         <p class="card-text">This will remove all submissions from the system.</p>
         <form action="#" method="POST">
             {{ csrf_field() }}
-            <input type="submit" class="btn btn-outline-danger btm-sm" value="Delete Submissions" />
+            <input type="submit" class="btn btn-outline-danger btn-sm" value="Delete Submissions" />
         </form>
 
         <hr />
