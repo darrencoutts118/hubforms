@@ -27,5 +27,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin/', 'as' => 'admin.', 'middleware' => 'auth'], function () {
     Route::resource('forms', 'FormController');
     Route::resource('forms/{form}/submissions', 'SubmissionsController')->only(['index', 'show', 'destroy']);
-
+    Route::resource('forms/{form}/fields', 'FieldController')->except(['show']);
 });
