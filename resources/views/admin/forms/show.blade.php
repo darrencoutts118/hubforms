@@ -4,20 +4,7 @@
 <div class="card mb-3">
     <div class="card-header">
         <p>{{ $form->title }}</p>
-        <ul class="nav nav-tabs card-header-tabs">
-            <li class="nav-item">
-                <a class="nav-link active" href="#"><i class="fa fa-sticky-note"></i> Overview</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fa fa-pen"></i> Submissions</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fa fa-align-justify"></i> Fields</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#"><i class="far fa-play-circle"></i> Actions</a>
-            </li>
-        </ul>
+        @include('admin.forms.menu', ['active' => 'overview'])
     </div>
     <div class="card-body text-center">
         <div class="row">
@@ -65,7 +52,7 @@
         <p class="card-text">This will remove all submissions from the system.</p>
         <form action="#" method="POST">
             {{ csrf_field() }}
-            <input type="submit" class="btn btn-danger" value="Delete Submissions" />
+            <input type="submit" class="btn btn-outline-danger" value="Delete Submissions" />
         </form>
 
         <hr />
@@ -74,7 +61,7 @@
         <p class="card-text">If you delete the form, all of the submissions stored will also be deleted.</p>
         <form action="#" method="POST">
             {{ csrf_field() }}
-            <input type="submit" class="btn btn-danger" value="Delete Form" />
+            <input type="submit" class="btn btn-outline-danger" value="Delete Form" />
         </form>
     </div>
 </div>
