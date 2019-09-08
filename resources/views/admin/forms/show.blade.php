@@ -38,7 +38,23 @@
             <a href="{{ route('form', $form) }}" class="btn btn-primary">View Form</a>
         </div>
         @else
-        {{ $form->submissions->count() }}
+        <table class="table table-striped table-sm">
+            <tr>
+                @foreach($form->fields->take(3) as $field)
+                <th>{{ $field->title }}</th>
+                @endforeach
+                <th></th>
+            </tr>
+            @foreach ($form->submissions->take(5) as $submission)
+            <tr>
+                @foreach($form->fields->take(3) as $field)
+                <td>{{ $submission->{$field->name} }}</td>
+                @endforeach
+                <td><a href="{{ route('admin.submissions.show', [$form, $submission]) }}">View</a></td>
+            </tr>
+            @endforeach
+        </table>
+        <a href="{{ route('admin.submissions.index', $form) }}" class="btn btn-primary btn-sm">View All Submissions</a>
         @endif
     </div>
 </div>
@@ -52,7 +68,7 @@
         <p class="card-text">This will remove all submissions from the system.</p>
         <form action="#" method="POST">
             {{ csrf_field() }}
-            <input type="submit" class="btn btn-outline-danger" value="Delete Submissions" />
+            <input type="submit" class="btn btn-outline-danger btm-sm" value="Delete Submissions" />
         </form>
 
         <hr />
@@ -61,7 +77,7 @@
         <p class="card-text">If you delete the form, all of the submissions stored will also be deleted.</p>
         <form action="#" method="POST">
             {{ csrf_field() }}
-            <input type="submit" class="btn btn-outline-danger" value="Delete Form" />
+            <input type="submit" class="btn btn-outline-danger btn-sm" value="Delete Form" />
         </form>
     </div>
 </div>
