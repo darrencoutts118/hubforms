@@ -18,4 +18,9 @@ class Field extends Model
     {
         return $this->belongsTo(Form::class);
     }
+
+    public function options()
+    {
+        return $this->hasMany(Option::class);
+    }
 }
