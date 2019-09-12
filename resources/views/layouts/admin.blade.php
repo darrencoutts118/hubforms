@@ -82,6 +82,9 @@
                         </ul>
                     </div>
                     <div class="col-md-9">
+                        @if(Breadcrumbs::exists(Route::currentRouteName()))
+                        {{ Breadcrumbs::render() }}
+                        @endif
                         @if (session('success'))
                         <div class="alert alert-success">
                             {{ session('success') }}
