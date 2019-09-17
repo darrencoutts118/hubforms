@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Field;
 use App\Models\Form;
 use Illuminate\Database\Seeder;
 
@@ -13,12 +14,8 @@ class FormSeeder extends Seeder
     public function run()
     {
         //
-        $form = new Form;
-        $form->title = 'Example Form';
-        $form->save();
-
-        $form = new Form;
-        $form->title = 'Enquiry Form';
-        $form->save();
+        factory(Form::class, 10)->create()->each(function ($form) {
+            factory(Field::class, rand(3, 20))->create(['form_id' => $form->id]);
+        });
     }
 }

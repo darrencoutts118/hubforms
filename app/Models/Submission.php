@@ -23,4 +23,9 @@ class Submission extends Model
     protected $with = [
         'metas',
     ];
+
+    public function form()
+    {
+        return $this->belongsTo(Form::class);
+    }
 }
