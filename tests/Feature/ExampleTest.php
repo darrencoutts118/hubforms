@@ -3,10 +3,12 @@
 namespace Tests\Feature;
 
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class ExampleTest extends TestCase
 {
+    use DatabaseTransactions;
+
     /**
      * A basic test example.
      *
@@ -16,6 +18,7 @@ class ExampleTest extends TestCase
     {
         $response = $this->get('/');
 
-        $response->assertStatus(200);
+        // we are going to redirect to the first form just now
+        $response->assertStatus(302);
     }
 }
