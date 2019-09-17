@@ -41,5 +41,5 @@ Breadcrumbs::for('admin.fields.edit', function ($trail, $form, $field) {
 
 Breadcrumbs::for('admin.options.index', function ($trail, $form, $field) {
     $trail->parent('admin.fields.edit', $form, $field);
-    $trail->push('Options', route('admin.options.index', [$form, $field]));
+    $trail->push('Options', route('admin.options.index', $form, $field));
 });
