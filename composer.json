@@ -16,7 +16,8 @@
         "kris/laravel-form-builder": "^1.21",
         "laravel/framework": "^6.0",
         "laravel/helpers": "^1.1",
-        "laravel/ui": "^1.0"
+        "laravel/ui": "^1.0",
+        "spatie/eloquent-sortable": "^3.7"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.2",

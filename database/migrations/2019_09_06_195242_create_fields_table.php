@@ -20,6 +20,7 @@ class CreateFieldsTable extends Migration
             $table->string('name');
             $table->string('title');
             $table->string('rules');
+            $table->integer('order')->unsigned()->nullable();
             $table->timestamps();
         });
     }
