@@ -10,7 +10,6 @@
     "require": {
         "php": "^7.1.3",
         "davejamesmiller/laravel-breadcrumbs": "5.x",
-        "facade/ignition": "^1.6",
         "fideloper/proxy": "^4.0",
         "kodeine/laravel-meta": "dev-patch-1",
         "kris/laravel-form-builder": "^1.21",
