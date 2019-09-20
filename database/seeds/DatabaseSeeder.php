@@ -14,10 +14,10 @@ class DatabaseSeeder extends Seeder
         $this->call(FormSeeder::class);
 
         // create the users
-        factory(App\User::class)->make([
+        factory(App\User::class)->create([
             'email' => 'demo@demo.com'
         ]);
 
-        factory(App\User::class, 100)->make();
+        factory(App\User::class, 100)->create();
     }
 }
