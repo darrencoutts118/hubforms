@@ -5,6 +5,7 @@ namespace Tests\Feature\Controllers;
 use App\Models\Field;
 use App\Models\Form;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Mail;
 use Tests\TestCase;
 
 class FormControllerTest extends TestCase
@@ -36,5 +37,27 @@ class FormControllerTest extends TestCase
         $this->assertDatabaseHas('submissions', [
             'form_id' => $form->id,
         ]);
+    }
+
+    public function test_an_email_is_sent_to_notification_address_on_submission()
+    {
+        // mock mails, this prevents us actually sending emails
+        Mail::fake();
+
+        // given a form
+        $form = factory(Form::class)->create(['notification' => 'notification@hubforms.io']);
+
+        // with a field
+        $field = factory(Field::class)->create(['form_id' => $form->id]);
+
+        // a submission can be made with valid details
+        $response = $this->post(route('form.submit', $form), [
+            $field->name => 'test value',
+        ]);
+
+        // an email is sent to the admin contact
+        Mail::assertSent(NewSubmissionEmail::class, function ($mail) use ($form) {
+            return $mail->hasTo('notification@hubforms.io');
+        });
     }
 }
