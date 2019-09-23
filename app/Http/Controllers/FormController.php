@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\FormSubmissionRequest;
+use App\Mail\NewSubmissionEmail;
 use App\Models\Form;
 use App\Models\Submission;
 use Illuminate\Http\Request;
+use Mail;
 
 class FormController extends Controller
 {
@@ -27,6 +29,8 @@ class FormController extends Controller
         }
 
         $submission->save();
+
+        Mail::to($form->notification)->send(new NewSubmissionEmail($form, $submission));
 
         return view('form.submitted', compact('form', 'submission'));
     }

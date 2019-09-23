@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\Controllers;
 
+use App\Mail\NewSubmissionEmail;
 use App\Models\Field;
 use App\Models\Form;
 use Illuminate\Foundation\Testing\RefreshDatabase;
