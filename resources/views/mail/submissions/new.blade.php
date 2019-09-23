@@ -1,5 +1,5 @@
 @component('mail::message')
-# Order Shipped
+# New Submission
 
 You have had a new submission on <strong>{{ $form->title }}</strong>
 
