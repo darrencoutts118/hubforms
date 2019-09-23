@@ -52,7 +52,7 @@ class FormControllerTest extends TestCase
         $field = factory(Field::class)->create(['form_id' => $form->id]);
 
         // a submission can be made with valid details
-        $response = $this->post(route('form.submit', $form), [
+        $this->post(route('form.submit', $form), [
             $field->name => 'test value',
         ]);
 
