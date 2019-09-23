@@ -32,9 +32,10 @@ class NewSubmissionEmail extends Mailable
      */
     public function build()
     {
-        $form = $this->form;
+        $form       = $this->form;
         $submission = $this->submission;
 
-        return $this->markdown('mail.submissions.new', compact(['form', 'submission']));
+        return $this->markdown('mail.submissions.new', compact(['form', 'submission']))
+            ->subject('New submission on ' . $form->title);
     }
 }
