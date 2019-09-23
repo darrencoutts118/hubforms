@@ -1,5 +1,5 @@
 # .travis.yml
-dist: precise
+dist: xenial
 
 language: php
 
