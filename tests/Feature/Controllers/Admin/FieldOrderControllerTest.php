@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Feature\Controllers\Admin;
 
 use App\Models\Field;
 use App\Models\Form;
@@ -8,7 +8,7 @@ use App\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
-class FieldTest extends TestCase
+class FieldOrderControllerTest extends TestCase
 {
     use RefreshDatabase;
 
