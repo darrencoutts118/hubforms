@@ -1,0 +1,32 @@
+# .travis.yml
+dist: precise
+
+language: php
+
+php:
+  - 7.2
+
+env:
+  - DB_DATABASE=testing
+  - DB_USERNAME=travis
+  - APP_ENV=testing
+  - APP_DEBUG=true
+
+addons:
+  mariadb: 10.4
+
+cache:
+  directories:
+    - node_modules
+    - vendor
+
+before_script:
+  - cp .env.example .env
+  - php artisan key:generate
+  - sudo mysql -e 'CREATE DATABASE testing;'
+  - composer self-update
+  - composer install --no-interaction
+  - php artisan migrate --no-interaction -vvv
+
+script:
+  - vendor/bin/phpunit
