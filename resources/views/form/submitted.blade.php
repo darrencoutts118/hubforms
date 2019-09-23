@@ -11,7 +11,7 @@
                 <div class="card-body">
                     <div class="alert alert-success">
                         <p><strong>Success</strong></p>
-                        <p>You have successfully submitted the form.</p>
+                        <p>{{ $form->confirmation }}</p>
                     </div>
                 </div>
             </div>
