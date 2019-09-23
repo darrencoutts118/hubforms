@@ -6,12 +6,6 @@ language: php
 php:
   - 7.2
 
-env:
-  - DB_DATABASE=testing
-  - DB_USERNAME=travis
-  - APP_ENV=testing
-  - APP_DEBUG=true
-
 addons:
   mariadb: 10.4
 
