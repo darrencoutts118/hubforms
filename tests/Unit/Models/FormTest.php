@@ -2,7 +2,9 @@
 
 namespace Tests\Unit\Models;
 
+use App\Models\Field;
 use App\Models\Form;
+use App\Models\Submission;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -33,5 +35,22 @@ class FormTest extends TestCase
         // the uuid should be the same
         $form = $form->fresh();
         $this->assertEquals($uuid, $form->uuid);
+    }
+
+    public function test_a_form_has_submissions()
+    {
+        // given a new form
+        $form = factory(Form::class)->create();
+
+        // which has some fields
+        factory(Field::class, 3)->create(['form_id' => $form->id]);
+
+        // that has a submission
+        $submission = new Submission();
+        $submission->form_id = $form->id;
+        $submission->save();
+
+        // the submission can be retrived from the form
+        $this->assertCount(1, $form->submissions);
     }
 }
