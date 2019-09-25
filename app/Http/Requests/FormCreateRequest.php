@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
+use App\Forms\FormForm;
 use Illuminate\Foundation\Http\FormRequest;
+use Kris\LaravelFormBuilder\FormBuilder;
 
 class FormCreateRequest extends FormRequest
 {
