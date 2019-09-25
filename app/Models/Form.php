@@ -17,6 +17,7 @@ class Form extends Model
     protected $fillable = [
         'title',
         'intro',
+        'notification',
     ];
 
     /*public function getRouteKeyName()

@@ -2,7 +2,7 @@
 
 namespace Tests\Feature\Controllers\Admin;
 
-use App\Models\Form as Resource;
+use App\Models\Form;
 use App\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
@@ -11,7 +11,7 @@ class FormControllerTest extends TestCase
 {
     use RefreshDatabase;
 
-    protected $urlPrefix = 'admin.forms';
+    protected $routePrefix = 'admin.forms';
 
     public function test_an_authorized_user_can_read_the_list_of_resources()
     {
@@ -19,10 +19,10 @@ class FormControllerTest extends TestCase
         $this->actingAs(factory(User::class)->create());
 
         // with multiple resources
-        factory(Resource::class, 5)->make();
+        factory(Form::class, 5)->make();
 
         // visit
-        $response = $this->get(route($this->urlPrefix . '.index'));
+        $response = $this->get(route($this->routePrefix . '.index'));
 
         // response is 200
         $response->assertOk();
@@ -40,12 +40,12 @@ class FormControllerTest extends TestCase
         $this->actingAs(factory(User::class)->create());
 
         // with multiple resources
-        factory(Resource::class, 5)->make();
+        factory(Form::class, 5)->make();
 
         // visit
-        $response = $this->get(route($this->urlPrefix . '.index'));
+        $response = $this->get(route($this->routePrefix . '.index'));
 
-        // response is 401
+        // i am redirected to the login
         $response->assertRedirect(route('login'));
     }*/
 
@@ -54,12 +54,12 @@ class FormControllerTest extends TestCase
         // without logging in
 
         // with multiple resources
-        factory(Resource::class, 5)->make();
+        factory(Form::class, 5)->make();
 
         // visit
-        $response = $this->get(route($this->urlPrefix . '.index'));
+        $response = $this->get(route($this->routePrefix . '.index'));
 
-        // response is 401
+        // i am redirected to the login
         $response->assertRedirect(route('login'));
     }
 
@@ -69,10 +69,10 @@ class FormControllerTest extends TestCase
         $this->actingAs(factory(User::class)->create());
 
         // with a resource
-        $resource = factory(Resource::class)->make();
+        $resource = factory(Form::class)->make();
 
         // visit
-        $response = $this->get(route($this->urlPrefix . '.show', $resource));
+        $response = $this->get(route($this->routePrefix . '.show', $resource));
 
         // response is 200
         $response->assertOk();
@@ -90,12 +90,12 @@ class FormControllerTest extends TestCase
         $this->actingAs(factory(User::class)->create());
 
         // with a resource
-        $resource = factory(Resource::class)->make();
+        $resource = factory(Form::class)->make();
 
         // visit
-        $response = $this->get(route($this->urlPrefix . '.show', $resource));
+        $response = $this->get(route($this->routePrefix . '.show', $resource));
 
-        // response is 401
+        // i am redirected to the login
         $response->assertRedirect(route('login'));
 
     }*/
@@ -105,12 +105,12 @@ class FormControllerTest extends TestCase
         // without logging in
 
         // with a resource
-        $resource = factory(Resource::class)->make();
+        $resource = factory(Form::class)->make();
 
         // visit
-        $response = $this->get(route($this->urlPrefix . '.show', $resource));
+        $response = $this->get(route($this->routePrefix . '.show', $resource));
 
-        // response is 401
+        // i am redirected to the login
         $response->assertRedirect(route('login'));
     }
 
@@ -120,7 +120,7 @@ class FormControllerTest extends TestCase
         $this->actingAs(factory(User::class)->create());
 
         // visit
-        $response = $this->get(route($this->urlPrefix . '.create'));
+        $response = $this->get(route($this->routePrefix . '.create'));
 
         // response is 200
         $response->assertOk();
@@ -138,9 +138,9 @@ class FormControllerTest extends TestCase
         $this->actingAs(factory(User::class)->create());
 
         // visit
-        $response = $this->get(route($this->urlPrefix . '.create'));
+        $response = $this->get(route($this->routePrefix . '.create'));
 
-        // response is 401
+        // i am redirected to the login
         $response->assertRedirect(route('login'));
     }*/
 
@@ -149,9 +149,9 @@ class FormControllerTest extends TestCase
         // without logging in
 
         // visit
-        $response = $this->get(route($this->urlPrefix . '.create'));
+        $response = $this->get(route($this->routePrefix . '.create'));
 
-        // response is 401
+        // i am redirected to the login
         $response->assertRedirect(route('login'));
     }
 
@@ -161,13 +161,16 @@ class FormControllerTest extends TestCase
         $this->actingAs(factory(User::class)->create());
 
         // with new resource data
-        $resource = factory(Resource::class)->make();
+        $resource = factory(Form::class)->make();
 
-        // i post a new resource
-        $response = $this->post(route($this->urlPrefix . '.store'), $resource->toArray());
+        // i send a post request
+        $response = $this->post(route($this->routePrefix . '.store'), $resource->toArray());
 
         // redirected to the resource
-        $response->assertRedirect(route($this->urlPrefix . '.show', Resource::first()));
+        $response->assertRedirect(route($this->routePrefix . '.show', Form::first()));
+
+        // it is stored in the database
+        $this->assertDatabaseHas(app(Form::class)->getTable(), $resource->toArray());
     }
 
     /*public function test_an_unauthorized_user_can_not_create_a_resource()
@@ -175,22 +178,35 @@ class FormControllerTest extends TestCase
         // as a logged in, unauthorized user
         $this->actingAs(factory(User::class)->create());
 
-        // i post a new resource
-        $response = $this->post(route($this->urlPrefix . '.store'), factory(Resource::class)->make()->toArray());
+        // with new resource data
+        $resource = factory(Form::class)->make();
 
-        // response is 401
+
+        // i send a post request
+        $response = $this->post(route($this->routePrefix . '.store'), $resource->toArray());
+
+        // i am redirected to the login
         $response->assertRedirect(route('login'));
+
+        // it is not stored in the database
+        $this->assertDatabaseMissing(app(Form::class)->getTable(), $resource->toArray());
     }*/
 
     public function test_a_non_logged_in_user_can_not_create_a_resource()
     {
         // without logging in
 
-        // i post a new resource
-        $response = $this->post(route($this->urlPrefix . '.store'), factory(Resource::class)->make()->toArray());
+        // with new resource data
+        $resource = factory(Form::class)->make();
 
-        // response is 401
+        // i send a post request
+        $response = $this->post(route($this->routePrefix . '.store'), $resource->toArray());
+
+        // i am redirected to the login
         $response->assertRedirect(route('login'));
+
+        // it is not stored in the database
+        $this->assertDatabaseMissing(app(Form::class)->getTable(), $resource->toArray());
     }
 
     public function test_an_authorized_user_can_see_the_form_to_update_a_resource()
@@ -199,10 +215,10 @@ class FormControllerTest extends TestCase
         $this->actingAs(factory(User::class)->create());
 
         // with a resource
-        $resource = factory(Resource::class)->create();
+        $resource = factory(Form::class)->create();
 
         // i visit
-        $response = $this->get(route($this->urlPrefix . '.edit', $resource));
+        $response = $this->get(route($this->routePrefix . '.edit', $resource));
 
         // response is 200
         $response->assertOk();
@@ -220,12 +236,12 @@ class FormControllerTest extends TestCase
         $this->actingAs(factory(User::class)->create());
 
         // with a resource
-        $resource = factory(Resource::class)->create();
+        $resource = factory(Form::class)->create();
 
         // i visit
-        $response = $this->get(route($this->urlPrefix . '.edit', $resource));
+        $response = $this->get(route($this->routePrefix . '.edit', $resource));
 
-        // response is 401
+        // i am redirected to the login
         $response->assertRedirect(route('login'));
     }*/
 
@@ -234,12 +250,12 @@ class FormControllerTest extends TestCase
         // without logging in
 
         // with a resource
-        $resource = factory(Resource::class)->create();
+        $resource = factory(Form::class)->create();
 
         // i visit
-        $response = $this->get(route($this->urlPrefix . '.edit', $resource));
+        $response = $this->get(route($this->routePrefix . '.edit', $resource));
 
-        // response is 401
+        // i am redirected to the login
         $response->assertRedirect(route('login'));
     }
 
@@ -249,13 +265,19 @@ class FormControllerTest extends TestCase
         $this->actingAs(factory(User::class)->create());
 
         // with a resource
-        $resource = factory(Resource::class)->create();
+        $resource = factory(Form::class)->create();
+
+        // that i make changes to
+        $new = factory(Form::class)->make();
 
         // i submit to
-        $response = $this->put(route($this->urlPrefix . '.update', $resource), factory(Resource::class)->make()->toArray());
+        $response = $this->put(route($this->routePrefix . '.update', $resource), $new->toArray());
 
         // response is 200
-        $response->assertRedirect(route($this->urlPrefix . '.show', $resource));
+        $response->assertRedirect(route($this->routePrefix . '.show', $resource));
+
+        // the database record is updated
+        $this->assertDatabaseHas(app(Form::class)->getTable(), $new->toArray());
     }
 
     /*public function test_an_unauthorized_user_can_not_update_a_resource()
@@ -264,13 +286,19 @@ class FormControllerTest extends TestCase
         $this->actingAs(factory(User::class)->create());
 
         // with a resource
-        $resource = factory(Resource::class)->create();
+        $resource = factory(Form::class)->create();
+
+        // that i make changes to
+        $new = factory(Form::class)->make();
 
         // i submit to
-        $response = $this->put(route($this->urlPrefix . '.update', $resource), factory(Resource::class)->make()->toArray());
+        $response = $this->put(route($this->routePrefix . '.update', $resource), $new->toArray());
 
-        // response is 401
+        // i am redirected to the login
         $response->assertRedirect(route('login'));
+
+        // the database record isnt updated
+        $this->assertDatabaseHas(app(Form::class)->getTable(), $resource->toArray());
     }*/
 
     public function test_a_non_logged_in_user_can_not_update_a_resource()
@@ -278,13 +306,19 @@ class FormControllerTest extends TestCase
         // without logging in
 
         // with a resource
-        $resource = factory(Resource::class)->create();
+        $resource = factory(Form::class)->create();
+
+        // that i make changes to
+        $new = factory(Form::class)->make();
 
         // i submit to
-        $response = $this->put(route($this->urlPrefix . '.update', $resource), factory(Resource::class)->make()->toArray());
+        $response = $this->put(route($this->routePrefix . '.update', $resource), $new->toArray());
 
-        // response is 401
+        // i am redirected to the login
         $response->assertRedirect(route('login'));
+
+        // the database record isnt updated
+        $this->assertDatabaseHas(app(Form::class)->getTable(), $resource->toArray());
     }
 
     public function test_an_authorized_user_can_delete_a_resource()
@@ -293,13 +327,16 @@ class FormControllerTest extends TestCase
         $this->actingAs(factory(User::class)->create());
 
         // with a resource
-        $resource = factory(Resource::class)->create();
+        $resource = factory(Form::class)->create();
 
         // i send a delete request
-        $response = $this->delete(route($this->urlPrefix . '.destroy', $resource));
+        $response = $this->delete(route($this->routePrefix . '.destroy', $resource));
 
         // response is 200
         $response->assertOk();
+
+        // the record remains in the database
+        $this->assertDatabaseMissing(app(Form::class)->getTable(), $resource->toArray());
     }
 
     /*public function test_an_unauthorized_user_can_not_delete_a_resource()
@@ -308,13 +345,16 @@ class FormControllerTest extends TestCase
         $this->actingAs(factory(User::class)->create());
 
         // with a resource
-        $resource = factory(Resource::class)->create();
+        $resource = factory(Form::class)->create();
 
         // i send a delete request
-        $response = $this->delete(route($this->urlPrefix . '.destroy', $resource));
+        $response = $this->delete(route($this->routePrefix . '.destroy', $resource));
 
-        // response is 401
+        // i am redirected to the login
         $response->assertRedirect(route('login'));
+
+        // the record remains in the database
+        $this->assertDatabaseHas(app(Form::class)->getTable(), $resource->toArray());
     }*/
 
     public function test_a_non_logged_in_user_can_not_delete_a_resource()
@@ -322,12 +362,15 @@ class FormControllerTest extends TestCase
         // without logging in
 
         // with a resource
-        $resource = factory(Resource::class)->create();
+        $resource = factory(Form::class)->create();
 
         // i send a delete request
-        $response = $this->delete(route($this->urlPrefix . '.destroy', $resource));
+        $response = $this->delete(route($this->routePrefix . '.destroy', $resource));
 
-        // response is 401
+        // i am redirected to the login
         $response->assertRedirect(route('login'));
+
+        // the record remains in the database
+        $this->assertDatabaseHas(app(Form::class)->getTable(), $resource->toArray());
     }
 }

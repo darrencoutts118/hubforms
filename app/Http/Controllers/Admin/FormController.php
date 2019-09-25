@@ -112,5 +112,6 @@ class FormController extends Controller
     public function destroy(Form $form)
     {
         //
+        $form->delete();
     }
 }
