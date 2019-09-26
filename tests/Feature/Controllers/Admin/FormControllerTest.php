@@ -69,7 +69,7 @@ class FormControllerTest extends TestCase
         $this->actingAs(factory(User::class)->create());
 
         // with a resource
-        $resource = factory(Form::class)->make();
+        $resource = factory(Form::class)->create();
 
         // visit
         $response = $this->get(route($this->routePrefix . '.show', $resource));
@@ -90,7 +90,7 @@ class FormControllerTest extends TestCase
         $this->actingAs(factory(User::class)->create());
 
         // with a resource
-        $resource = factory(Form::class)->make();
+        $resource = factory(Form::class)->create();
 
         // visit
         $response = $this->get(route($this->routePrefix . '.show', $resource));
@@ -105,7 +105,7 @@ class FormControllerTest extends TestCase
         // without logging in
 
         // with a resource
-        $resource = factory(Form::class)->make();
+        $resource = factory(Form::class)->create();
 
         // visit
         $response = $this->get(route($this->routePrefix . '.show', $resource));
