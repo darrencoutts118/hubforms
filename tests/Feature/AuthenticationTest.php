@@ -37,4 +37,14 @@ class AuthenticationTest extends TestCase
 
         $response->assertRedirect(route('home'));
     }
+
+    public function test_if_you_visit_the_login_page_without_being_authenticated()
+    {
+        // without being a logged in user
+
+        // i visit a non login page
+        $response = $this->get(route('login'));
+
+        $response->assertOk();
+    }
 }
