@@ -21,7 +21,7 @@ class FormControllerTest extends TestCase
         // with multiple resources
         factory(Form::class, 5)->make();
 
-        // visit
+        // i visit
         $response = $this->get(route($this->routePrefix . '.index'));
 
         // response is 200
@@ -42,7 +42,7 @@ class FormControllerTest extends TestCase
         // with multiple resources
         factory(Form::class, 5)->make();
 
-        // visit
+        // i visit
         $response = $this->get(route($this->routePrefix . '.index'));
 
         // i am redirected to the login
@@ -56,7 +56,7 @@ class FormControllerTest extends TestCase
         // with multiple resources
         factory(Form::class, 5)->make();
 
-        // visit
+        // i visit
         $response = $this->get(route($this->routePrefix . '.index'));
 
         // i am redirected to the login
@@ -71,7 +71,7 @@ class FormControllerTest extends TestCase
         // with a resource
         $resource = factory(Form::class)->create();
 
-        // visit
+        // i visit
         $response = $this->get(route($this->routePrefix . '.show', $resource));
 
         // response is 200
@@ -92,7 +92,7 @@ class FormControllerTest extends TestCase
         // with a resource
         $resource = factory(Form::class)->create();
 
-        // visit
+        // i visit
         $response = $this->get(route($this->routePrefix . '.show', $resource));
 
         // i am redirected to the login
@@ -107,7 +107,7 @@ class FormControllerTest extends TestCase
         // with a resource
         $resource = factory(Form::class)->create();
 
-        // visit
+        // i visit
         $response = $this->get(route($this->routePrefix . '.show', $resource));
 
         // i am redirected to the login
@@ -119,7 +119,7 @@ class FormControllerTest extends TestCase
         // as a logged in, authorized user
         $this->actingAs(factory(User::class)->create());
 
-        // visit
+        // i visit
         $response = $this->get(route($this->routePrefix . '.create'));
 
         // response is 200
@@ -137,7 +137,7 @@ class FormControllerTest extends TestCase
         // as a logged in, unauthorized user
         $this->actingAs(factory(User::class)->create());
 
-        // visit
+        // i visit
         $response = $this->get(route($this->routePrefix . '.create'));
 
         // i am redirected to the login
@@ -148,7 +148,7 @@ class FormControllerTest extends TestCase
     {
         // without logging in
 
-        // visit
+        // i visit
         $response = $this->get(route($this->routePrefix . '.create'));
 
         // i am redirected to the login
