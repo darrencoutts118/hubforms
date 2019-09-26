@@ -78,7 +78,7 @@ class FormControllerTest extends TestCase
         $response->assertOk();
 
         // view is
-        //$response->assertViewIs('admin.forms.show');
+        $response->assertViewIs('admin.forms.show');
 
         // and i see
         //$response->assertSee();
