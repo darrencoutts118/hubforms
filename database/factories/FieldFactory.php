@@ -11,6 +11,6 @@ $factory->define(Field::class, function (Faker $faker) {
         'type'    => 'text',
         'name'    => str_replace(' ', '_', $faker->words(3, true)),
         'title'   => ucwords($faker->words(3, true)),
-        'rules'   => '',
+        'rules'   => 'min:1',
     ];
 });
