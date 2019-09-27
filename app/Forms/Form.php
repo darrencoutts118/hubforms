@@ -16,6 +16,7 @@ class Form extends BaseForm
         foreach ($fields as $field) {
             $this->add($field->name, $field->type, [
                 'rules' => $field->rules,
+                'label' => $field->title,
             ]);
         }
 
