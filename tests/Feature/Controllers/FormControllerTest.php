@@ -61,4 +61,27 @@ class FormControllerTest extends TestCase
             return $mail->hasTo('notification@hubforms.io');
         });
     }
+
+    public function test_a_form_is_displayed()
+    {
+        // given a form
+        $form = factory(Form::class)->create();
+
+        // with 5 fields
+        $fields = factory(Field::class, 5)->create(['form_id' => $form->id]);
+
+        // a request is sent to the endpoint
+        $response = $this->get(route('form', $form));
+
+        // i see the title
+        $response->assertSee($form->title);
+
+        // i see the description
+        $response->assertSee($form->intro);
+
+        // i see each of the fields
+        foreach ($fields as $field) {
+            $response->assertSee($field->title);
+        }
+    }
 }
