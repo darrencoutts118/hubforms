@@ -27,9 +27,4 @@ class Field extends Model implements Sortable
     {
         return $this->belongsTo(Form::class);
     }
-
-    public function options()
-    {
-        return $this->hasMany(Option::class);
-    }
 }
