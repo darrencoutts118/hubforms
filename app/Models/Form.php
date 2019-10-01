@@ -18,6 +18,7 @@ class Form extends Model
         'title',
         'intro',
         'notification',
+        'confirmation_text',
     ];
 
     /*public function getRouteKeyName()
