@@ -11,7 +11,7 @@ class Form extends Model
 {
     //
     protected $with = [
-        'fields'
+        'fields',
     ];
 
     protected $fillable = [
@@ -22,7 +22,7 @@ class Form extends Model
 
     /*public function getRouteKeyName()
     {
-        return 'uuid';
+    return 'uuid';
     }*/
 
     protected static function boot()
@@ -40,7 +40,7 @@ class Form extends Model
 
         return $formBuilder->create(BaseForm::class, [
             'method' => 'POST',
-            'url'    => route('form.submit', $this)
+            'url'    => route('form.submit', $this),
         ]);
     }
 
@@ -52,5 +52,10 @@ class Form extends Model
     public function submissions()
     {
         return $this->hasMany(Submission::class);
+    }
+
+    public function getConfirmationAttribute()
+    {
+        return $this->confirmation_text ?? 'You have successfully submitted the form.';
     }
 }

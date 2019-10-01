@@ -84,4 +84,24 @@ class FormControllerTest extends TestCase
             $response->assertSee($field->title);
         }
     }
+    
+    public function test_the_confirmation_message_is_shown_after_submission()
+    {
+        // mock mails, this prevents us actually sending emails
+        Mail::fake();
+
+        // given a form
+        $form = factory(Form::class)->create(['notification' => 'notification@hubforms.io']);
+
+        // with a field
+        $field = factory(Field::class)->create(['form_id' => $form->id]);
+
+        // a submission can be made with valid details
+        $response = $this->post(route('form.submit', $form), [
+            $field->name => 'test value',
+        ]);
+
+        // the confirmation should be seen
+        $response->assertSee($form->confirmation);
+    }
 }
