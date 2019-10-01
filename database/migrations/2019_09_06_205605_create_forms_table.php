@@ -19,6 +19,7 @@ class CreateFormsTable extends Migration
             $table->string('title');
             $table->text('intro')->nullable();
             $table->string('notification')->nullable();
+            $table->string('confirmation_text')->nullable();
             $table->timestamps();
         });
     }

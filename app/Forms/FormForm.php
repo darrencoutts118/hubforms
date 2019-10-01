@@ -17,6 +17,8 @@ class FormForm extends Form
 
         $this->add('notification', Field::TEXT, ['rules' => 'email', 'label' => 'Notification Email Address']);
 
+        $this->add('confirmation_text', Field::TEXTAREA . ['rules' => 'min:3', label => 'Confirmation Message']);
+
         $this->add('submit', Field::BUTTON_SUBMIT, ['attr' => ['class' => 'btn btn-primary']]);
     }
 }
