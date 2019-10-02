@@ -30,5 +30,5 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin/', 'as' => 'admin.', 'm
     Route::resource('forms/{form}/submissions', 'SubmissionsController')->only(['index', 'show', 'destroy']);
     Route::resource('forms/{form}/fields', 'FieldController')->except(['show']);
     Route::post('forms/{form}/fields/{field}/order', 'FieldOrderController@update')->name('fields.order');
-    Route::resource('forms/{form}/fields/{field}/options', 'OptionsController')->except(['show']);
+    //Route::resource('forms/{form}/fields/{field}/options', 'OptionsController')->except(['show']);
 });

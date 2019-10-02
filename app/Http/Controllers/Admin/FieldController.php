@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Forms\FieldForm;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\FieldCreateRequest;
+use App\Http\Requests\FieldUpdateRequest;
 use App\Models\Field;
 use App\Models\Form;
 use Illuminate\Http\Request;
@@ -83,7 +84,7 @@ class FieldController extends Controller
      * @param  \App\Models\Field  $field
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Form $form, Field $field)
+    public function update(FieldUpdateRequest $request, Form $form, Field $field)
     {
         //
         $field = new Field;
