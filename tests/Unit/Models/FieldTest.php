@@ -142,4 +142,17 @@ class FieldTest extends TestCase
         // is updated to reflect this
         $this->assertTrue($fields[0]->is($field));
     }
+
+    public function test_field_belongs_to_a_form()
+    {
+        // given a form
+        $form = factory(Form::class)->create();
+
+        // that has a field
+        $field = factory(Field::class)->create(['form_id' => $form->id]);
+
+        // the field belongs to the form
+        $this->assertNotNull($field->form);
+        $this->assertEquals($form->id, $field->form->id);
+    }
 }
