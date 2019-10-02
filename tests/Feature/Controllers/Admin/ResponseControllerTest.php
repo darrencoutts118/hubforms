@@ -72,6 +72,57 @@ class ResponseControllerTest extends TestCase
         $response->assertRedirect(route('login'));
     }
 
+public function test_an_authorized_user_can_read_an_invididual_resource()
+    {
+        // as a logged in, authorized user
+        $this->actingAs(factory(User::class)->create());
+
+        // with a resource
+        $resource = factory(Submission::class)->create(['form_id' => $this->formid]);
+
+        // i visit
+        $response = $this->get(route($this->routePrefix . '.show', [$this->form, $resource]));
+
+        // response is 200
+        $response->assertOk();
+
+        // view is
+        $response->assertViewIs('admin.submissions.show');
+
+        // and i see
+        //$response->assertSee();
+    }
+
+    /*public function test_an_unauthorized_user_can_not_read_an_invididual_resource()
+    {
+        // as a logged in, unauthorized user
+        $this->actingAs(factory(User::class)->create());
+
+        // with a resource
+        $resource = factory(Form::class)->create();
+
+        // i visit
+        $response = $this->get(route($this->routePrefix . '.show', $resource));
+
+        // i am redirected to the login
+        $response->assertRedirect(route('login'));
+
+    }*/
+
+    public function test_a_non_logged_in_user_can_not_read_an_invididual_resource()
+    {
+        // without logging in
+
+        // with a resource
+        $resource = factory(Submission::class)->create(['form_id' => $this->formid]);
+
+        // i visit
+        $response = $this->get(route($this->routePrefix . '.show', [$this->form, $resource]));
+
+        // i am redirected to the login
+        $response->assertRedirect(route('login'));
+    }
+
     public function test_an_authorized_user_can_delete_a_resource()
     {
         // as a logged in, authorized user
@@ -124,7 +175,7 @@ class ResponseControllerTest extends TestCase
         // the record remains in the database
         $resource = $resource->toArray();
         unset($resource['meta_data']);
-        
+
         $this->assertDatabaseHas(app(Submission::class)->getTable(), $resource);
     }
 }
