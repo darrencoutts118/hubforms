@@ -37,7 +37,8 @@ class FormTest extends TestCase
         $this->assertEquals($uuid, $form->uuid);
     }
 
-    public function testAFormHasSubmissions() {
+    public function testAFormHasSubmissions()
+    {
         // given a new form
         $form = factory(Form::class)->create();
 
