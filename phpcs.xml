@@ -307,7 +307,7 @@
     <!-- 6.1. Unary operators -->
 
     <!-- The increment/decrement operators MUST NOT have any space between the operator and operand. -->
-    <rule ref="Generic.WhiteSpace.IncrementDecrementSpacing"/>
+    <!-- <rule ref="Generic.WhiteSpace.IncrementDecrementSpacing"/> -->
 
     <!-- Type casting operators MUST NOT have any space within the parentheses. -->
     <rule ref="Squiz.WhiteSpace.CastSpacing"/>
