@@ -18,7 +18,7 @@ class FormControllerTest extends TestCase
      *
      * @return void
      */
-    public function test_a_form_can_be_submitted()
+    public function testAFormCanBeSubmitted()
     {
         // given a form
         $form = factory(Form::class)->create();
@@ -40,7 +40,7 @@ class FormControllerTest extends TestCase
         ]);
     }
 
-    public function test_an_email_is_sent_to_notification_address_on_submission()
+    public function testAnEmailIsSentToNotificationAddressOnSubmission()
     {
         // mock mails, this prevents us actually sending emails
         Mail::fake();
@@ -62,7 +62,7 @@ class FormControllerTest extends TestCase
         });
     }
 
-    public function test_a_form_is_displayed()
+    public function testAFormIsDisplayed()
     {
         // given a form
         $form = factory(Form::class)->create();
@@ -84,8 +84,8 @@ class FormControllerTest extends TestCase
             $response->assertSee($field->title);
         }
     }
-    
-    public function test_the_confirmation_message_is_shown_after_submission()
+
+    public function testTheConfirmationMessageIsShownAfterSubmission()
     {
         // mock mails, this prevents us actually sending emails
         Mail::fake();

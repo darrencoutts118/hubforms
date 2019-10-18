@@ -16,7 +16,7 @@ class AuthenticationMiddlewareTest extends TestCase
      *
      * @return void
      */
-    public function test_prompts_for_authentication()
+    public function testPromptsForAuthentication()
     {
         $response = $this->get(route('admin.forms.index'));
 
@@ -28,7 +28,7 @@ class AuthenticationMiddlewareTest extends TestCase
      *
      * @return void
      */
-    public function test_if_you_are_authenticated_the_login_page_redirects_you()
+    public function testIfYouAreAuthenticatedTheLoginPageRedirectsYou()
     {
         // as a logged in user
         $this->actingAs(factory(User::class)->create());
@@ -38,7 +38,7 @@ class AuthenticationMiddlewareTest extends TestCase
         $response->assertRedirect(route('home'));
     }
 
-    public function test_if_you_visit_the_login_page_without_being_authenticated()
+    public function testIfYouVisitTheLoginPageWithoutBeingAuthenticated()
     {
         // without being a logged in user
 
