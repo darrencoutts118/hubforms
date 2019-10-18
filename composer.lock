@@ -780,16 +780,16 @@
         },
         {
             "name": "laravel/ui",
-            "version": "v1.0.1",
+            "version": "v1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/ui.git",
-                "reference": "15ac62a34c1b07a88da3eff2506ac6ae782c9803"
+                "reference": "57e2361b55ed1bc80ff0b3258b9713626fb38a2b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/ui/zipball/15ac62a34c1b07a88da3eff2506ac6ae782c9803",
-                "reference": "15ac62a34c1b07a88da3eff2506ac6ae782c9803",
+                "url": "https://api.github.com/repos/laravel/ui/zipball/57e2361b55ed1bc80ff0b3258b9713626fb38a2b",
+                "reference": "57e2361b55ed1bc80ff0b3258b9713626fb38a2b",
                 "shasum": ""
             },
             "require": {
@@ -805,7 +805,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0-dev"
+                    "dev-master": "1.x-dev"
                 },
                 "laravel": {
                     "providers": [
@@ -833,7 +833,7 @@
                 "laravel",
                 "ui"
             ],
-            "time": "2019-09-02T16:34:23+00:00"
+            "time": "2019-10-11T12:16:52+00:00"
         },
         {
             "name": "laravelcollective/html",
