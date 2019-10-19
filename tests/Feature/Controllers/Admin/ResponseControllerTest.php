@@ -22,7 +22,7 @@ class ResponseControllerTest extends TestCase
         $this->formid = $this->form->id;
     }
 
-    public function test_an_authorized_user_can_read_the_list_of_resources()
+    public function testAnAuthorizedUserCanReadTheListOfResources()
     {
         // as a logged in, authorized user
         $this->actingAs(factory(User::class)->create());
@@ -43,7 +43,7 @@ class ResponseControllerTest extends TestCase
         //$response->assertSee();
     }
 
-    /*public function test_an_unauthorized_user_can_not_read_the_list_of_resources()
+    /*public function testAnUnauthorizedUserCanNotReadTheListOfResources()
     {
     // as a logged in, unauthorized user
     $this->actingAs(factory(User::class)->create());
@@ -58,7 +58,7 @@ class ResponseControllerTest extends TestCase
     $response->assertRedirect(route('login'));
     }*/
 
-    public function test_a_non_logged_in_user_can_not_read_the_list_of_resources()
+    public function testANonLoggedInUserCanNotReadTheListOfResources()
     {
         // without logging in
 
@@ -72,7 +72,7 @@ class ResponseControllerTest extends TestCase
         $response->assertRedirect(route('login'));
     }
 
-public function test_an_authorized_user_can_read_an_invididual_resource()
+    public function testAnAuthorizedUserCanReadAnInvididualResource()
     {
         // as a logged in, authorized user
         $this->actingAs(factory(User::class)->create());
@@ -93,7 +93,7 @@ public function test_an_authorized_user_can_read_an_invididual_resource()
         //$response->assertSee();
     }
 
-    /*public function test_an_unauthorized_user_can_not_read_an_invididual_resource()
+    /*public function testAnUnauthorizedUserCanNotReadAnInvididualResource()
     {
         // as a logged in, unauthorized user
         $this->actingAs(factory(User::class)->create());
@@ -109,7 +109,7 @@ public function test_an_authorized_user_can_read_an_invididual_resource()
 
     }*/
 
-    public function test_a_non_logged_in_user_can_not_read_an_invididual_resource()
+    public function testANonLoggedInUserCanNotReadAnInvididualResource()
     {
         // without logging in
 
@@ -123,7 +123,7 @@ public function test_an_authorized_user_can_read_an_invididual_resource()
         $response->assertRedirect(route('login'));
     }
 
-    public function test_an_authorized_user_can_delete_a_resource()
+    public function testAnAuthorizedUserCanDeleteAResource()
     {
         // as a logged in, authorized user
         $this->actingAs(factory(User::class)->create());
@@ -141,7 +141,7 @@ public function test_an_authorized_user_can_read_an_invididual_resource()
         $this->assertDatabaseMissing(app(Submission::class)->getTable(), $resource->toArray());
     }
 
-    /*public function test_an_unauthorized_user_can_not_delete_a_resource()
+    /*public function testAnUnauthorizedUserCanNotDeleteAResource()
     {
     // as a logged in, unauthorized user
     $this->actingAs(factory(User::class)->create());
@@ -159,7 +159,7 @@ public function test_an_authorized_user_can_read_an_invididual_resource()
     $this->assertDatabaseHas(app(Submission::class)->getTable(), $resource->toArray());
     }*/
 
-    public function test_a_non_logged_in_user_can_not_delete_a_resource()
+    public function testANonLoggedInUserCanNotDeleteAResource()
     {
         // without logging in
 

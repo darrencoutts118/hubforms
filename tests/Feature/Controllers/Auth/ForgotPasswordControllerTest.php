@@ -17,7 +17,7 @@ class ForgotPasswordControllerTest extends TestCase
      *
      * @return void
      */
-    public function test_the_forgot_password_page_is_shown()
+    public function testTheForgotPasswordPageIsShown()
     {
         // with a user
         $user = factory(User::class)->create();
@@ -35,7 +35,7 @@ class ForgotPasswordControllerTest extends TestCase
         $response->assertSee('Send Password Reset Link');
     }
 
-    public function test_if_a_user_isnt_found_the_submission_errors()
+    public function testIfAUserIsntFoundTheSubmissionErrors()
     {
         // with a user
         $user = factory(User::class)->create();
@@ -50,7 +50,7 @@ class ForgotPasswordControllerTest extends TestCase
         $response->assertSessionHasErrors('email');
     }
 
-    public function test_if_a_user_is_found_an_email_is_sent()
+    public function testIfAUserIsFoundAnEmailIsSent()
     {
         Notification::fake();
 

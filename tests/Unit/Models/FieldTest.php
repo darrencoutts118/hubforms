@@ -16,7 +16,7 @@ class FieldTest extends TestCase
      *
      * @return void
      */
-    public function test_if_its_the_first_item_it_is_order_one()
+    public function testIfItsTheFirstItemItIsOrderOne()
     {
         // given a form
         $form = factory(Form::class)->create();
@@ -34,7 +34,7 @@ class FieldTest extends TestCase
      *
      * @return void
      */
-    public function test_when_a_field_is_created_its_order_is_the_next_in_suequence()
+    public function testWhenAFieldIsCreatedItsOrderIsTheNextInSuequence()
     {
         // given a form
         $form = factory(Form::class)->create();
@@ -50,7 +50,7 @@ class FieldTest extends TestCase
         $this->assertEquals(6, $field->fresh()->order);
     }
 
-    public function test_a_field_can_be_moved_up()
+    public function testAFieldCanBeMovedUp()
     {
         // given a form
         $form = factory(Form::class)->create();
@@ -68,7 +68,7 @@ class FieldTest extends TestCase
         $this->assertEquals(1, $field->fresh()->order);
     }
 
-    public function test_a_field_can_be_moved_down()
+    public function testAFieldCanBeMovedDown()
     {
         // given a form
         $form = factory(Form::class)->create();
@@ -86,7 +86,7 @@ class FieldTest extends TestCase
         $this->assertEquals(2, $field->fresh()->order);
     }
 
-    public function test_the_top_item_cant_be_moved_any_higher()
+    public function testTheTopItemCantBeMovedAnyHigher()
     {
         // given a form
         $form = factory(Form::class)->create();
@@ -104,7 +104,7 @@ class FieldTest extends TestCase
         $this->assertEquals(1, $field->fresh()->order);
     }
 
-    public function test_the_bottom_item_cant_be_moved_any_lower()
+    public function testTheBottomItemCantBeMovedAnyLower()
     {
         // given a form
         $form = factory(Form::class)->create();
@@ -122,7 +122,7 @@ class FieldTest extends TestCase
         $this->assertEquals(2, $field->fresh()->order);
     }
 
-    public function test_the_order_can_be_retrived()
+    public function testTheOrderCanBeRetrived()
     {
         // given a form
         $form = factory(Form::class)->create();
@@ -143,7 +143,7 @@ class FieldTest extends TestCase
         $this->assertTrue($fields[0]->is($field));
     }
 
-    public function test_field_belongs_to_a_form()
+    public function testFieldBelongsToAForm()
     {
         // given a form
         $form = factory(Form::class)->create();
