@@ -19,7 +19,7 @@
 <script>
 export default {
     mounted() {
-        console.log('Component mounted.');
+        alert('Component mounted.');
     },
 };
 </script>
