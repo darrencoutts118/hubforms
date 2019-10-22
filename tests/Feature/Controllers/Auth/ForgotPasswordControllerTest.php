@@ -3,10 +3,10 @@
 namespace Tests\Feature\Controllers\Auth;
 
 use App\User;
+use Illuminate\Auth\Notifications\ResetPassword as ResetPasswordNotification;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Notification;
 use Tests\TestCase;
-use Illuminate\Auth\Notifications\ResetPassword as ResetPasswordNotification;
 
 class ForgotPasswordControllerTest extends TestCase
 {

@@ -40,12 +40,12 @@ class FieldsSeeder extends Seeder
         ];
 
         foreach ($fields as $name => $field) {
-            $model          = new FieldModel;
+            $model = new FieldModel;
             $model->form_id = 1;
-            $model->name    = $name;
-            $model->title   = $field['title'];
-            $model->type    = $field['type'];
-            $model->rules   = $field['rules'];
+            $model->name = $name;
+            $model->title = $field['title'];
+            $model->type = $field['type'];
+            $model->rules = $field['rules'];
             $model->save();
         }
 
@@ -88,12 +88,12 @@ class FieldsSeeder extends Seeder
         ];
 
         foreach ($fields as $name => $field) {
-            $model          = new FieldModel;
+            $model = new FieldModel;
             $model->form_id = 2;
-            $model->name    = $name;
-            $model->title   = $field['title'];
-            $model->type    = $field['type'];
-            $model->rules   = $field['rules'];
+            $model->name = $name;
+            $model->title = $field['title'];
+            $model->type = $field['type'];
+            $model->rules = $field['rules'];
             $model->save();
         }
     }

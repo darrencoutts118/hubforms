@@ -21,7 +21,7 @@ class NewSubmissionEmail extends Mailable
     public function __construct($form, $submission)
     {
         //
-        $this->form       = $form;
+        $this->form = $form;
         $this->submission = $submission;
     }
 
@@ -32,7 +32,7 @@ class NewSubmissionEmail extends Mailable
      */
     public function build()
     {
-        $form       = $this->form;
+        $form = $this->form;
         $submission = $this->submission;
 
         return $this->markdown('mail.submissions.new', compact(['form', 'submission']))
