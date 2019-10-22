@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Form;
 use App\Models\Submission;
 use Illuminate\Http\Request;
-use App\Models\Form;
 
 class SubmissionsController extends Controller
 {
