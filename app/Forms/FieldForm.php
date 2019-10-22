@@ -43,11 +43,11 @@ class FieldForm extends Form
                 //Field::ENTITY       => 'entity',
             ],
             'choice_options' => [
-                'wrapper' => ['class' => 'choice-wrapper'],
+                'wrapper'    => ['class' => 'choice-wrapper'],
                 'label_attr' => ['class' => 'label-class'],
             ],
             'expanded' => false,
-            'multiple' => false
+            'multiple' => false,
         ]);
 
         $this->add('rules', Field::TEXT);

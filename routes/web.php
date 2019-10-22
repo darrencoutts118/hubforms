@@ -12,7 +12,6 @@
 */
 
 use App\Models\Form;
-use Illuminate\Http\Request;
 
 Route::get('/', function () {
     return redirect()->route('form', Form::first());

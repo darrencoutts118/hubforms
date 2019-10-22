@@ -18,7 +18,7 @@ class ResponseControllerTest extends TestCase
     {
         parent::setUp();
 
-        $this->form   = factory(Form::class)->create();
+        $this->form = factory(Form::class)->create();
         $this->formid = $this->form->id;
     }
 
