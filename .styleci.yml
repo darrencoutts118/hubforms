@@ -2,6 +2,7 @@ preset: laravel
 enabled:
   - alpha_ordered_imports
   - align_double_arrow
+  - concat_with_spaces
 disabled:
   - length_ordered_imports
 finder:
