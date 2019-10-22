@@ -1,6 +1,10 @@
 preset: laravel
+enabled:
+  - alpha_ordered_imports
+  - align_double_arrow
 disabled:
-  - unused_use
+  - length_ordered_imports
+  - unalign_double_arrow
 finder:
   not-name:
     - index.php
