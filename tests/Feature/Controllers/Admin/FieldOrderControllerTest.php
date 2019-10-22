@@ -17,7 +17,7 @@ class FieldOrderControllerTest extends TestCase
      *
      * @return void
      */
-    public function test_features_can_be_moved_up()
+    public function testFeaturesCanBeMovedUp()
     {
         // as a logged in user
         $this->actingAs(factory(User::class)->create());
@@ -39,7 +39,7 @@ class FieldOrderControllerTest extends TestCase
         $this->assertEquals(1, $fields[1]->fresh()->order);
     }
 
-    public function test_features_can_be_moved_down()
+    public function testFeaturesCanBeMovedDown()
     {
         // as a logged in user
         $this->actingAs(factory(User::class)->create());
@@ -61,7 +61,7 @@ class FieldOrderControllerTest extends TestCase
         $this->assertEquals(2, $fields[0]->fresh()->order);
     }
 
-    public function test_if_an_invalid_direction_is_specified_abort()
+    public function testIfAnInvalidDirectionIsSpecifiedAbort()
     {
         // as a logged in user
         $this->actingAs(factory(User::class)->create());
@@ -83,7 +83,7 @@ class FieldOrderControllerTest extends TestCase
         $this->assertEquals(1, $fields[0]->fresh()->order);
     }
 
-    public function test_you_must_be_logged_in_to_order()
+    public function testYouMustBeLoggedInToOrder()
     {
         // given a form
         $form = factory(Form::class)->create();

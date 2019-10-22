@@ -22,7 +22,7 @@ class FieldControllerTest extends TestCase
         $this->formid = $this->form->id;
     }
 
-    public function test_an_authorized_user_can_read_the_list_of_resources()
+    public function testAnAuthorizedUserCanReadTheListOfResources()
     {
         // as a logged in, authorized user
         $this->actingAs(factory(User::class)->create());
@@ -43,7 +43,7 @@ class FieldControllerTest extends TestCase
         //$response->assertSee();
     }
 
-    /*public function test_an_unauthorized_user_can_not_read_the_list_of_resources()
+    /*public function testAnUnauthorizedUserCanNotReadTheListOfResources()
     {
     // as a logged in, unauthorized user
     $this->actingAs(factory(User::class)->create());
@@ -58,7 +58,7 @@ class FieldControllerTest extends TestCase
     $response->assertRedirect(route('login'));
     }*/
 
-    public function test_a_non_logged_in_user_can_not_read_the_list_of_resources()
+    public function testANonLoggedInUserCanNotReadTheListOfResources()
     {
         // without logging in
 
@@ -72,7 +72,7 @@ class FieldControllerTest extends TestCase
         $response->assertRedirect(route('login'));
     }
 
-    public function test_an_authorized_user_can_see_the_form_to_create_a_resource()
+    public function testAnAuthorizedUserCanSeeTheFormToCreateAResource()
     {
         // as a logged in, authorized user
         $this->actingAs(factory(User::class)->create());
@@ -90,7 +90,7 @@ class FieldControllerTest extends TestCase
         //$response->assertSee();
     }
 
-    /*public function test_an_unauthorized_user_can_not_see_the_form_to_create_a_resource()
+    /*public function testAnUnauthorizedUserCanNotSeeTheFormToCreateAResource()
     {
     // as a logged in, unauthorized user
     $this->actingAs(factory(User::class)->create());
@@ -102,7 +102,7 @@ class FieldControllerTest extends TestCase
     $response->assertRedirect(route('login'));
     }*/
 
-    public function test_a_non_logged_in_user_can_not_see_the_form_to_create_a_resource()
+    public function testANonLoggedInUserCanNotSeeTheFormToCreateAResource()
     {
         // without logging in
 
@@ -113,7 +113,7 @@ class FieldControllerTest extends TestCase
         $response->assertRedirect(route('login'));
     }
 
-    public function test_an_authorized_user_can_create_a_resource()
+    public function testAnAuthorizedUserCanCreateAResource()
     {
         // as a logged in, authorized user
         $this->actingAs(factory(User::class)->create());
@@ -131,7 +131,7 @@ class FieldControllerTest extends TestCase
         $this->assertDatabaseHas(app(Field::class)->getTable(), $resource->toArray());
     }
 
-    /*public function test_an_unauthorized_user_can_not_create_a_resource()
+    /*public function testAnUnauthorizedUserCanNotCreateAResource()
     {
     // as a logged in, unauthorized user
     $this->actingAs(factory(User::class)->create());
@@ -149,7 +149,7 @@ class FieldControllerTest extends TestCase
     $this->assertDatabaseMissing(app(Field::class)->getTable(), $resource->toArray());
     }*/
 
-    public function test_a_non_logged_in_user_can_not_create_a_resource()
+    public function testANonLoggedInUserCanNotCreateAResource()
     {
         // without logging in
 
@@ -166,7 +166,7 @@ class FieldControllerTest extends TestCase
         $this->assertDatabaseMissing(app(Field::class)->getTable(), $resource->toArray());
     }
 
-    public function test_an_authorized_user_can_see_the_form_to_update_a_resource()
+    public function testAnAuthorizedUserCanSeeTheFormToUpdateAResource()
     {
         // as a logged in, authorized user
         $this->actingAs(factory(User::class)->create());
@@ -187,7 +187,7 @@ class FieldControllerTest extends TestCase
         //$response->assertSee();
     }
 
-    /*public function test_an_unauthorized_user_can_not_see_the_form_to_update_a_resource()
+    /*public function testAnUnauthorizedUserCanNotSeeTheFormToUpdateAResource()
     {
     // as a logged in, unauthorized user
     $this->actingAs(factory(User::class)->create());
@@ -202,7 +202,7 @@ class FieldControllerTest extends TestCase
     $response->assertRedirect(route('login'));
     }*/
 
-    public function test_a_non_logged_in_user_can_not_see_the_form_to_update_a_resource()
+    public function testANonLoggedInUserCanNotSeeTheFormToUpdateAResource()
     {
         // without logging in
 
@@ -216,7 +216,7 @@ class FieldControllerTest extends TestCase
         $response->assertRedirect(route('login'));
     }
 
-    public function test_an_authorized_user_can_update_a_resource()
+    public function testAnAuthorizedUserCanUpdateAResource()
     {
         // as a logged in, authorized user
         $this->actingAs(factory(User::class)->create());
@@ -237,7 +237,7 @@ class FieldControllerTest extends TestCase
         $this->assertDatabaseHas(app(Field::class)->getTable(), $new->toArray());
     }
 
-    /*public function test_an_unauthorized_user_can_not_update_a_resource()
+    /*public function testAnUnauthorizedUserCanNotUpdateAResource()
     {
     // as a logged in, unauthorized user
     $this->actingAs(factory(User::class)->create());
@@ -258,7 +258,7 @@ class FieldControllerTest extends TestCase
     $this->assertDatabaseHas(app(Field::class)->getTable(), $resource->toArray());
     }*/
 
-    public function test_a_non_logged_in_user_can_not_update_a_resource()
+    public function testANonLoggedInUserCanNotUpdateAResource()
     {
         // without logging in
 
@@ -278,7 +278,7 @@ class FieldControllerTest extends TestCase
         $this->assertDatabaseHas(app(Field::class)->getTable(), $resource->toArray());
     }
 
-    public function test_an_authorized_user_can_delete_a_resource()
+    public function testAnAuthorizedUserCanDeleteAResource()
     {
         // as a logged in, authorized user
         $this->actingAs(factory(User::class)->create());
@@ -296,7 +296,7 @@ class FieldControllerTest extends TestCase
         $this->assertDatabaseMissing(app(Field::class)->getTable(), $resource->toArray());
     }
 
-    /*public function test_an_unauthorized_user_can_not_delete_a_resource()
+    /*public function testAnUnauthorizedUserCanNotDeleteAResource()
     {
     // as a logged in, unauthorized user
     $this->actingAs(factory(User::class)->create());
@@ -314,7 +314,7 @@ class FieldControllerTest extends TestCase
     $this->assertDatabaseHas(app(Field::class)->getTable(), $resource->toArray());
     }*/
 
-    public function test_a_non_logged_in_user_can_not_delete_a_resource()
+    public function testANonLoggedInUserCanNotDeleteAResource()
     {
         // without logging in
 

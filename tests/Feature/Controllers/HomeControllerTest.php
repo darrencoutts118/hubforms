@@ -14,7 +14,7 @@ class HomeControllerTest extends TestCase
      *
      * @return void
      */
-    public function test_if_i_am_not_logged_in_i_will_be_redirected()
+    public function testIfIAmNotLoggedInIWillBeRedirected()
     {
         // without logging in
 
@@ -25,7 +25,7 @@ class HomeControllerTest extends TestCase
         $response->assertRedirect(route('login'));
     }
 
-    public function test_if_i_am_logged_in_i_can_see_the_page()
+    public function testIfIAmLoggedInICanSeeThePage()
     {
         // after logging in
         $this->actingAs(factory(User::class)->create());

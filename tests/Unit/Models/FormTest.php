@@ -12,7 +12,7 @@ class FormTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_it_generates_a_uuidTest()
+    public function testItGeneratesAUuidTest()
     {
         // given a new form
         $form = factory(Form::class)->create();
@@ -21,7 +21,7 @@ class FormTest extends TestCase
         $this->assertNotEmpty($form->uuid);
     }
 
-    public function test_it_does_not_change_uuid_when_updating()
+    public function testItDoesNotChangeUuidWhenUpdating()
     {
         // given a new form
         $form = factory(Form::class)->create();
@@ -37,7 +37,8 @@ class FormTest extends TestCase
         $this->assertEquals($uuid, $form->uuid);
     }
 
-    public function test_a_form_has_submissions() {
+    public function testAFormHasSubmissions()
+    {
         // given a new form
         $form = factory(Form::class)->create();
 
@@ -53,7 +54,7 @@ class FormTest extends TestCase
         $this->assertCount(1, $form->submissions);
     }
 
-    public function test_it_has_a_confirmation_text()
+    public function testItHasAConfirmationText()
     {
         // given a new form
         $form = factory(Form::class)->create();
@@ -70,7 +71,7 @@ class FormTest extends TestCase
         $this->assertEquals($form->confirmation_text, $form->confirmation);
     }
 
-    public function test_it_has_a_default_confirmation_text()
+    public function testItHasADefaultConfirmationText()
     {
         // given a new form
         $form = factory(Form::class)->create(['confirmation_text' => null]);

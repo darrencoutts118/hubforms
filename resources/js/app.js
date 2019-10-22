@@ -6,7 +6,7 @@
 
 require('./bootstrap');
 
-window.Vue = require('vue');
+let Vue = require('vue');
 
 /**
  * The following block of code may be used to automatically register your
@@ -27,6 +27,6 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-const app = new Vue({
+window.app = new Vue({
     el: '#app',
 });

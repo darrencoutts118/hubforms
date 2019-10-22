@@ -15,7 +15,7 @@ class RegisterControllerTest extends TestCase
      *
      * @return void
      */
-    public function test_the_registration_form_is_shown()
+    public function testTheRegistrationFormIsShown()
     {
         // i visit the registration page
         $response = $this->get(route('register'));
@@ -39,7 +39,7 @@ class RegisterControllerTest extends TestCase
         $response->assertViewIs('auth.register');
     }
 
-    public function test_email_address_cant_already_exist()
+    public function testEmailAddressCantAlreadyExist()
     {
         // with a user
         $user = factory(User::class)->create();
@@ -63,7 +63,7 @@ class RegisterControllerTest extends TestCase
         $this->assertDatabaseMissing('users', $new->toArray());
     }
 
-    public function test_password_confirmation_must_match()
+    public function testPasswordConfirmationMustMatch()
     {
         // i try to register a new user
         $new = factory(User::class)->make();
@@ -81,7 +81,7 @@ class RegisterControllerTest extends TestCase
         $this->assertDatabaseMissing('users', $new->toArray());
     }
 
-    public function test_a_user_can_be_created()
+    public function testAUserCanBeCreated()
     {
         // i try to register a new user
         $new = factory(User::class)->make(['email_verified_at' => null]);

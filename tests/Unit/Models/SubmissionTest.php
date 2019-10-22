@@ -16,7 +16,7 @@ class SubmissionTest extends TestCase
      *
      * @return void
      */
-    public function test_a_submission_can_contain_metable_attributes()
+    public function testASubmissionCanContainMetableAttributes()
     {
         // given a form
         $form = factory(Form::class)->create();
@@ -38,7 +38,7 @@ class SubmissionTest extends TestCase
         ]);
     }
 
-    public function test_a_submission_can_contains_meta()
+    public function testASubmissionCanContainsMeta()
     {
         // given a form
         $form = factory(Form::class)->create();
@@ -57,7 +57,7 @@ class SubmissionTest extends TestCase
         $this->assertEquals('test', $submission->metas[0]->value);
     }
 
-    public function test_a_meta_value_can_be_fluently_retrieved()
+    public function testAMetaValueCanBeFluentlyRetrieved()
     {
         // given a form
         $form = factory(Form::class)->create();

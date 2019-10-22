@@ -17,7 +17,7 @@ class ResertPasswordControllerTest extends TestCase
      *
      * @return void
      */
-    public function test_the_password_reset_form_is_shown()
+    public function testThePasswordResetFormIsShown()
     {
         // with a user
         $user = factory(User::class)->create();
@@ -47,7 +47,7 @@ class ResertPasswordControllerTest extends TestCase
         $response->assertViewIs('auth.passwords.reset');
     }
 
-    public function test_the_token_must_be_valid()
+    public function testTheTokenMustBeValid()
     {
         // with a user
         $user = factory(User::class)->create();
@@ -70,7 +70,7 @@ class ResertPasswordControllerTest extends TestCase
         $response->assertSessionHasErrors('email');
     }
 
-    public function test_the_email_must_not_be_changed()
+    public function testTheEmailMustNotBeChanged()
     {
         // with a user
         $user = factory(User::class)->create();
@@ -93,7 +93,7 @@ class ResertPasswordControllerTest extends TestCase
         $response->assertSessionHasErrors('email');
     }
 
-    public function test_the_password_must_match()
+    public function testThePasswordMustMatch()
     {
         // with a user
         $user = factory(User::class)->create();
@@ -116,7 +116,7 @@ class ResertPasswordControllerTest extends TestCase
         $response->assertSessionHasErrors('password');
     }
 
-    public function test_password_can_be_set()
+    public function testPasswordCanBeSet()
     {
         // with a user
         $user = factory(User::class)->create();
