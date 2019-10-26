@@ -2,8 +2,8 @@
 
 namespace Tests\Feature\Controllers\Admin;
 
-use App\Models\Form;
 use App\Models\Field;
+use App\Models\Form;
 use App\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
@@ -18,7 +18,7 @@ class FieldControllerTest extends TestCase
     {
         parent::setUp();
 
-        $this->form   = factory(Form::class)->create();
+        $this->form = factory(Form::class)->create();
         $this->formid = $this->form->id;
     }
 

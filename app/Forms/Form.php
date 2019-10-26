@@ -2,7 +2,6 @@
 
 namespace App\Forms;
 
-use App\Models\Field;
 use Kris\LaravelFormBuilder\Form as BaseForm;
 
 class Form extends BaseForm

@@ -28,11 +28,11 @@ class CreateMetaTable extends Migration
         });
     }
 
-/**
- * Reverse the migrations.
- *
- * @return void
- */
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
     public function down()
     {
         Schema::drop('submission_meta');
