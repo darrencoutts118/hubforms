@@ -30,3 +30,6 @@ script:
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
+
+notifications:
+  slack: interhubdigital:W6aVfof6qMnofK891KBlVVop
