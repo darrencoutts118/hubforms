@@ -4,7 +4,6 @@ enabled:
   - align_double_arrow
   - concat_with_spaces
 disabled:
-  - length_ordered_imports
   - concat_without_spaces
 finder:
   not-name:
