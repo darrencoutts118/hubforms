@@ -8,4 +8,4 @@
 ## security
 | composer.json (PHP) | package.json (npm)  |
 |---|---|
-|[![Known Vulnerabilities](https://snyk.io//test/github/darrencoutts118/hubforms/badge.svg?targetFile=composer.lock)](https://snyk.io//test/github/darrencoutts118/hubforms?targetFile=composer.lock)|[![Known Vulnerabilities](https://snyk.io//test/github/darrencoutts118/hubforms/badge.svg?targetFile=package.json)](https://snyk.io//test/github/darrencoutts118/hubforms?targetFile=package.json)|
+|[![Composer Security Check](https://snyk.io//test/github/darrencoutts118/hubforms/badge.svg?targetFile=composer.lock)](https://snyk.io//test/github/darrencoutts118/hubforms?targetFile=composer.lock)|[![Known Vulnerabilities](https://snyk.io//test/github/darrencoutts118/hubforms/badge.svg?targetFile=package.json)](https://snyk.io//test/github/darrencoutts118/hubforms?targetFile=package.json)|
