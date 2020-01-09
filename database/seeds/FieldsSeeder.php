@@ -15,9 +15,9 @@ class FieldsSeeder extends Seeder
     {
         $fields = [
             'name' => [
-                    'title' => 'Name',
-                    'type'  => Field::TEXT,
-                    'rules' => 'required|min:5',
+                'title' => 'Name',
+                'type'  => Field::TEXT,
+                'rules' => 'required|min:5',
             ],
 
             'email' => [
@@ -51,9 +51,9 @@ class FieldsSeeder extends Seeder
 
         $fields = [
             'name' => [
-                    'title' => 'Name',
-                    'type'  => Field::TEXT,
-                    'rules' => 'required|min:5',
+                'title' => 'Name',
+                'type'  => Field::TEXT,
+                'rules' => 'required|min:5',
             ],
 
             'email' => [
