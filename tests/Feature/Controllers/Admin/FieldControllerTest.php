@@ -14,7 +14,7 @@ class FieldControllerTest extends TestCase
 
     protected $routePrefix = 'admin.fields';
 
-    public function setUp() : void
+    public function setUp(): void
     {
         parent::setUp();
 
