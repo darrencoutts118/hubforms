@@ -4,9 +4,11 @@ namespace App;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Silber\Bouncer\Database\HasRolesAndAbilities;
 
 class User extends Authenticatable
 {
+    use HasRolesAndAbilities;
     use Notifiable;
 
     /**
@@ -35,4 +37,13 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getRoles()
+    {
+        $roles = $this->getClipboardInstance()->getRoles($this);
+
+        $roles[] = 'manager';
+
+        return $roles;
+    }
 }

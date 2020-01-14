@@ -2,13 +2,26 @@
 
 namespace App\Models;
 
+use Str;
 use App\Forms\Form as BaseForm;
 use Illuminate\Database\Eloquent\Model;
 use Kris\LaravelFormBuilder\FormBuilder;
-use Str;
+use Mpociot\Versionable\VersionableTrait;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class Form extends Model
 {
+    use VersionableTrait;
+    use LogsActivity;
+
+    protected static $logAttributes = ['name', 'text', '*'];
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->enableApprovals();
+    }
+
     //
     protected $with = [
         'fields',

@@ -16,7 +16,11 @@
         "laravel/framework": "^6.0",
         "laravel/helpers": "^1.1",
         "laravel/ui": "^1.0",
-        "spatie/eloquent-sortable": "^3.7"
+        "mpociot/versionable": "dev-feature-workflow",
+        "sebdesign/laravel-state-machine": "^2.1",
+        "silber/bouncer": "v1.0.0-rc.6",
+        "spatie/eloquent-sortable": "^3.7",
+        "spatie/laravel-activitylog": "^3.9"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.2",
@@ -69,5 +73,8 @@
     "repositories": [{
         "type": "vcs",
         "url": "https://github.com/darrencoutts118/laravel-meta"
+    }, {
+        "type": "vcs",
+        "url": "https://github.com/darrencoutts118/versionable"
     }]
 }

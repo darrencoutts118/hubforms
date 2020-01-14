@@ -36,4 +36,14 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    public function authenticated()
+    {
+        activity()->performedOn(auth()->user())->withProperties(['ip' => request()->ip()])->log('authenticated');
+    }
+
+    public function loggedOut()
+    {
+        activity()->withProperties(['ip' => request()->ip()])->log('logged out');
+    }
 }

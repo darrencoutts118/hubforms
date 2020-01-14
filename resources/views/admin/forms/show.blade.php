@@ -59,6 +59,69 @@
     </div>
 </div>
 
+@if (count($form->approvals))
+    <div class="card mb-3">
+        <div class="card-header">
+            Pending Approvals
+        </div>
+        <div class="card-body">
+            <table class="table-stripped table-sm w-100">
+                <tr>
+                    <td></td>
+                    <td>Created At</td>
+                    <td>Created By</td>
+                    <td>Type</td>
+                    <td>Actions</td>
+                </tr>
+                @foreach ($form->approvals as $version)
+                <tr>
+                    <td>Version {{ $loop->iteration }}</td>
+                    <td>{{ $version->created_at }}</td>
+                    <td>{{ $version->user_id }}</td>
+                    <td>{{ $version->version_type }}</td>
+                    <td><a href="{{ route('version.diff', $version) }}">View Diff</a></td>
+                    <td><a href="{{ route('version.approve', $version) }}">Approve Version</a></td>
+                </tr>
+                @endforeach
+            </table>
+        </div>
+    </div>
+@endif
+
+<div class="card mb-3">
+    <div class="card-header">
+        Versions
+    </div>
+    <div class="card-body">
+        <table class="table-striped table-sm w-100">
+            <tr>
+                <th></th>
+                <th>Created At</th>
+                <th>Created By</th>
+                <th>Actions</th>
+            </tr>
+            @foreach ($form->versions as $version)
+            <tr>
+                <td>Version {{ $loop->iteration }}</td>
+                <td>{{ $version->created_at }}</td>
+                <td>{{ $version->user_id }}</td>
+                <td>
+                    @if (!$loop->first)
+                        <a href="{{ route('version.changes', $version) }}">View Changes</a> |
+                    @endif
+
+                    @if (!$loop->last)
+                        <a href="{{ route('version.diff', $version) }}">View Diff</a> | <a href="{{ route('version.revert', $version) }}">Revert</a>
+                    @else
+                        <span class="badge badge-pill badge-secondary">Current Version</span>
+                    @endif
+                </td>
+            </tr>
+            @endforeach
+        </table>
+    </div>
+</div>
+
 <div class="card">
     <div class="card-header text-white bg-danger">
         Danger Zone!
