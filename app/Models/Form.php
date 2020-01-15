@@ -11,7 +11,7 @@ use Spatie\Activitylog\Traits\LogsActivity;
 
 class Form extends Model
 {
-    use VersionableTrait;
+    //use VersionableTrait;
     use LogsActivity;
 
     protected static $logAttributes = ['name', 'text', '*'];
@@ -19,7 +19,7 @@ class Form extends Model
     public function __construct()
     {
         parent::__construct();
-        $this->enableApprovals();
+        //$this->enableApprovals();
     }
 
     //
@@ -45,6 +45,20 @@ class Form extends Model
 
         static::creating(function ($form) {
             $form->uuid = (string) Str::uuid();
+        });
+
+        static::creating(function ($model) {
+            //$model->version_approved = false;
+        });
+
+        static::saving(function (Model $model) {
+            if ($model->exists) {
+                // need to replicate this and make a new version
+                $version = $model->replicate();
+                $version->version_parent = $model->id;
+                dd($version);
+                $version->push();
+            }
         });
     }
 
