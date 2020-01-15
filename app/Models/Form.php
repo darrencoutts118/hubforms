@@ -47,7 +47,7 @@ class Form extends Model
             $form->uuid = (string) Str::uuid();
         });
 
-        static::creating(function ($model) {
+        /*static::creating(function ($model) {
             //$model->version_approved = false;
         });
 
@@ -59,7 +59,7 @@ class Form extends Model
                 dd($version);
                 $version->push();
             }
-        });
+        });*/
     }
 
     public function getBuilder()
