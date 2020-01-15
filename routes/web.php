@@ -12,8 +12,8 @@
 */
 
 use App\Models\Form;
-use Mpociot\Versionable\Version;
 use Illuminate\Support\Facades\Route;
+use Mpociot\Versionable\Version;
 use Sebdesign\SM\StateMachine\StateMachine;
 
 Route::get('/', function () {
@@ -53,12 +53,14 @@ Route::get('/_tools/version/{version}/changes', function (Version $version) {
 Route::get('/_tools/version/{version}/approve', function (Version $version) {
     // get the actual model
     $version->approve();
+
     return redirect()->back();
 })->name('version.approve');
 
 Route::get('/_tools/version/{version}/revert', function (Version $version) {
     // get the actual model
     $version->revert();
+
     return redirect()->back();
 })->name('version.revert');
 
@@ -70,23 +72,22 @@ Route::get('/hello', function () {
     dd(Route::getCurrentRoute()->action);
 });
 
-Route::get('/_tools/state-machine', function (){
-
+Route::get('/_tools/state-machine', function () {
     $obj = new Form;
     $obj->state = 'new';
 
     $machine = [
-        'graph' => 'default',
+        'graph'    => 'default',
         'metadata' => 123,
-        'states' => [
+        'states'   => [
             ['name' => 'new', 'metadata' => Form::find(1)],
             ['name' => 'pending_review'],
             ['name' => 'published'],
             ['name' => 'closed'],
         ],
         'transitions' => [
-            'create' => ['from' => ['*'], 'to' => 'pending_review'],
-            'create' => ['from' => ['new'], 'to' => 'pending_review'],
+            'create'  => ['from' => ['*'], 'to' => 'pending_review'],
+            'create'  => ['from' => ['new'], 'to' => 'pending_review'],
             'abandon' => ['from' => ['new'], 'to' => 'closed'],
             'publish' => ['from' => ['pending_review'], 'to' => 'published'],
             'approve' => ['from' => ['pending_review'], 'to' => 'published'],
