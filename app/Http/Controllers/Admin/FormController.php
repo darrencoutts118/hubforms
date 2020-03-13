@@ -7,7 +7,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\FormCreateRequest;
 use App\Http\Requests\FormUpdateRequest;
 use App\Models\Form;
-use Illuminate\Http\Request;
 use Kris\LaravelFormBuilder\FormBuilder;
 
 class FormController extends Controller
