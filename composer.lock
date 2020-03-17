@@ -458,27 +458,26 @@
         },
         {
             "name": "kris/laravel-form-builder",
-            "version": "1.22.0",
+            "version": "1.30.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kristijanhusak/laravel-form-builder.git",
-                "reference": "9090e0213fc785bf655934495666ba36d462b95a"
+                "reference": "b6a4c4ad0f90f2793f25b4f6d87f618d81dfb31d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kristijanhusak/laravel-form-builder/zipball/9090e0213fc785bf655934495666ba36d462b95a",
-                "reference": "9090e0213fc785bf655934495666ba36d462b95a",
+                "url": "https://api.github.com/repos/kristijanhusak/laravel-form-builder/zipball/b6a4c4ad0f90f2793f25b4f6d87f618d81dfb31d",
+                "reference": "b6a4c4ad0f90f2793f25b4f6d87f618d81dfb31d",
                 "shasum": ""
             },
             "require": {
-                "illuminate/database": "5.*@dev|^6.0",
-                "illuminate/validation": "5.*@dev|^6.0",
-                "laravelcollective/html": "5.*|^6.0",
-                "php": ">=5.6.0"
+                "illuminate/database": "5.6.*@dev|^6|^7",
+                "illuminate/validation": "5.6.*@dev|^6|^7",
+                "laravelcollective/html": "5.6.*|^6|^7",
+                "php": ">=7.1"
             },
             "require-dev": {
-                "orchestra/testbench": "~3.4",
-                "phpunit/phpunit": "~5.0"
+                "orchestra/testbench": "~3.6"
             },
             "type": "library",
             "extra": {
@@ -530,7 +529,7 @@
                 "laravel",
                 "symfony"
             ],
-            "time": "2019-09-12T08:46:23+00:00"
+            "time": "2020-03-06T20:04:53+00:00"
         },
         {
             "name": "laravel/framework",
