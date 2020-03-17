@@ -1619,24 +1619,24 @@
         },
         {
             "name": "spatie/eloquent-sortable",
-            "version": "3.7.0",
+            "version": "3.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/eloquent-sortable.git",
-                "reference": "0eb944f90dd88756f93d916bf387e232190a7acf"
+                "reference": "5df5d545003f6443ced9684765759ea2e5cf5d91"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/eloquent-sortable/zipball/0eb944f90dd88756f93d916bf387e232190a7acf",
-                "reference": "0eb944f90dd88756f93d916bf387e232190a7acf",
+                "url": "https://api.github.com/repos/spatie/eloquent-sortable/zipball/5df5d545003f6443ced9684765759ea2e5cf5d91",
+                "reference": "5df5d545003f6443ced9684765759ea2e5cf5d91",
                 "shasum": ""
             },
             "require": {
-                "laravel/framework": "~5.8.0|^6.0",
+                "laravel/framework": "~5.8.0|^6.0|^7.0",
                 "php": "^7.2"
             },
             "require-dev": {
-                "orchestra/testbench": "~3.8.0|^4.0",
+                "orchestra/testbench": "~3.8.0|^4.0|^5.0",
                 "phpunit/phpunit": "^8.0"
             },
             "type": "library",
@@ -1665,7 +1665,7 @@
                 "sort",
                 "sortable"
             ],
-            "time": "2019-09-04T10:53:31+00:00"
+            "time": "2020-03-02T19:45:44+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
