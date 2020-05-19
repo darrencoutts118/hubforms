@@ -2,12 +2,12 @@
 
 namespace App\Models;
 
-use Str;
 use App\Forms\Form as BaseForm;
 use Illuminate\Database\Eloquent\Model;
 use Kris\LaravelFormBuilder\FormBuilder;
 use Mpociot\Versionable\VersionableTrait;
 use Spatie\Activitylog\Traits\LogsActivity;
+use Str;
 
 class Form extends Model
 {
