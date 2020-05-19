@@ -11,7 +11,7 @@ use Spatie\Activitylog\Traits\LogsActivity;
 
 class Form extends Model
 {
-    //use VersionableTrait;
+    use VersionableTrait;
     use LogsActivity;
 
     protected static $logAttributes = ['name', 'text', '*'];

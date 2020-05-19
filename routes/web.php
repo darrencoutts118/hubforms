@@ -70,7 +70,7 @@ Route::get('/hello', function () {
     dd(Route::getCurrentRoute()->action);
 });
 
-Route::get('/_tools/state-machine', function (){
+Route::get('/_tools/state-machine', function () {
 
     $obj = new Form;
     $obj->state = 'new';
@@ -85,7 +85,6 @@ Route::get('/_tools/state-machine', function (){
             ['name' => 'closed'],
         ],
         'transitions' => [
-            'create' => ['from' => ['*'], 'to' => 'pending_review'],
             'create' => ['from' => ['new'], 'to' => 'pending_review'],
             'abandon' => ['from' => ['new'], 'to' => 'closed'],
             'publish' => ['from' => ['pending_review'], 'to' => 'published'],
@@ -115,5 +114,11 @@ Route::get('/_tools/state-machine', function (){
     // Get all available transitions
     dump($stateMachine->getPossibleTransitions());
 
+    dump($stateMachine);
+
     dump($obj);
+});
+
+Route::get('/_tools/bulk/', function () {
+    $items = session($this->basketSessionName);
 });
