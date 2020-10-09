@@ -57,7 +57,7 @@ class FormControllerTest extends TestCase
         ]);
 
         // an email is sent to the admin contact
-        Mail::assertSent(NewSubmissionEmail::class, function ($mail) use ($form) {
+        Mail::assertSent(NewSubmissionEmail::class, function ($mail) {
             return $mail->hasTo('notification@hubforms.io');
         });
     }
