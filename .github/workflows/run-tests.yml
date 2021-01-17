@@ -55,7 +55,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: [run-tests]
 
-    if: github.event.pull_request.user.login == 'dependabot-preview[bot]'
+    if: github.event.pull_request.user.login == 'dependabot[bot]'
     steps:
       - name: automerge
         uses: actions/github-script@0.2.0
