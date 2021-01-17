@@ -63,7 +63,7 @@
             "keywords": [
                 "laravel"
             ],
-            "abandoned": true,
+            "abandoned": "diglactic/laravel-breadcrumbs",
             "time": "2019-12-30T22:50:51+00:00"
         },
         {
@@ -504,22 +504,22 @@
         },
         {
             "name": "kris/laravel-form-builder",
-            "version": "1.30.0",
+            "version": "1.40.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kristijanhusak/laravel-form-builder.git",
-                "reference": "b6a4c4ad0f90f2793f25b4f6d87f618d81dfb31d"
+                "reference": "06b6773318c52208c72f65756884964fe3171934"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kristijanhusak/laravel-form-builder/zipball/b6a4c4ad0f90f2793f25b4f6d87f618d81dfb31d",
-                "reference": "b6a4c4ad0f90f2793f25b4f6d87f618d81dfb31d",
+                "url": "https://api.github.com/repos/kristijanhusak/laravel-form-builder/zipball/06b6773318c52208c72f65756884964fe3171934",
+                "reference": "06b6773318c52208c72f65756884964fe3171934",
                 "shasum": ""
             },
             "require": {
-                "illuminate/database": "5.6.*@dev|^6|^7",
-                "illuminate/validation": "5.6.*@dev|^6|^7",
-                "laravelcollective/html": "5.6.*|^6|^7",
+                "illuminate/database": "^5.6@dev|^6|^7|^8",
+                "illuminate/validation": "^5.6@dev|^6|^7|^8",
+                "laravelcollective/html": "^5.6|^6|^7|^8",
                 "php": ">=7.1"
             },
             "require-dev": {
@@ -575,7 +575,7 @@
                 "laravel",
                 "symfony"
             ],
-            "time": "2020-03-06T20:04:53+00:00"
+            "time": "2020-09-28T20:54:27+00:00"
         },
         {
             "name": "laravel/framework",
@@ -4430,6 +4430,7 @@
                 "faker",
                 "fixtures"
             ],
+            "abandoned": true,
             "time": "2019-12-12T13:22:17+00:00"
         },
         {
