@@ -33,7 +33,17 @@ jobs:
               repo: context.payload.repository.name,
             });
             
-            console.log(branches);
+            branches.data.forEach((branch) => {
+              if (branch.name != 'master') {
+                octokit.repos.merge({
+                  owner: context.payload.repository.owner.login,
+                  repo: context.payload.repository.name,
+                  base: branch.name,
+                  head: 'master',
+                  commit_message: 'Automatically updating PR from base branch',
+                });
+              }
+            });
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
