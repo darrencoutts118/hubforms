@@ -35,7 +35,7 @@ jobs:
             
             branches.data.forEach((branch) => {
               if (branch.name != 'master') {
-                octokit.repos.merge({
+                github.repos.merge({
                   owner: context.payload.repository.owner.login,
                   repo: context.payload.repository.name,
                   base: branch.name,
