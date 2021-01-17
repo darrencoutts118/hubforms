@@ -3,14 +3,14 @@ name: Continuous Integration
 on: [push, pull_request]
 
 jobs:
-  test:
+  run-tests:
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: true
       matrix:
         os: [ubuntu-latest, windows-latest]
         php: [8.0, 7.4]
-        laravel: [6.*, 7.*, 8.*]
+        laravel: [6.*, 7.*]
         stability: [prefer-lowest, prefer-stable]
         include:
           - laravel: 6.*
@@ -49,7 +49,7 @@ jobs:
 
   auto-merge:
     runs-on: ubuntu-latest
-    needs: [test]
+    needs: [run-tests]
 
     if: github.event.pull_request.user.login == 'dependabot-preview[bot]'
     steps:
