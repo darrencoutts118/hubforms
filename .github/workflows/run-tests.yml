@@ -43,7 +43,9 @@ jobs:
           composer update --${{ matrix.stability }} --prefer-dist --no-interaction
 
       - name: Prepare Environment
-        run: php artisan key:generate
+        run: |
+          mv .env.example .env
+          php artisan key:generate
 
       - name: Execute tests
         run: vendor/bin/phpunit
