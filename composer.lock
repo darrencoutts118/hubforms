@@ -509,32 +509,29 @@
         },
         {
             "name": "kris/laravel-form-builder",
-            "version": "1.40.0",
+            "version": "1.51.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kristijanhusak/laravel-form-builder.git",
-                "reference": "06b6773318c52208c72f65756884964fe3171934"
+                "reference": "ca25ed8c07da845b821a29eeb4133d353a28a8a2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kristijanhusak/laravel-form-builder/zipball/06b6773318c52208c72f65756884964fe3171934",
-                "reference": "06b6773318c52208c72f65756884964fe3171934",
+                "url": "https://api.github.com/repos/kristijanhusak/laravel-form-builder/zipball/ca25ed8c07da845b821a29eeb4133d353a28a8a2",
+                "reference": "ca25ed8c07da845b821a29eeb4133d353a28a8a2",
                 "shasum": ""
             },
             "require": {
-                "illuminate/database": "^5.6@dev|^6|^7|^8",
-                "illuminate/validation": "^5.6@dev|^6|^7|^8",
-                "laravelcollective/html": "^5.6|^6|^7|^8",
+                "illuminate/database": "^5.6@dev|^6|^7|^8|^9",
+                "illuminate/validation": "^5.6@dev|^6|^7|^8|^9",
+                "laravelcollective/html": "^5.6|^6|^7|^8|^9",
                 "php": ">=7.1"
             },
             "require-dev": {
-                "orchestra/testbench": "~3.6"
+                "orchestra/testbench": "^6.13"
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
-                    "dev-master": "1.16.x-dev"
-                },
                 "laravel": {
                     "providers": [
                         "Kris\\LaravelFormBuilder\\FormBuilderServiceProvider"
@@ -563,14 +560,6 @@
                 {
                     "name": "Kristijan Husak",
                     "email": "husakkristijan@gmail.com"
-                },
-                {
-                    "name": "Mike Erickson",
-                    "email": "codedungeon@gmail.com"
-                },
-                {
-                    "name": "Mike Erickson",
-                    "email": "mike.erickson@codedungeon.io"
                 }
             ],
             "description": "Laravel form builder - symfony like",
@@ -580,7 +569,7 @@
                 "laravel",
                 "symfony"
             ],
-            "time": "2020-09-28T20:54:27+00:00"
+            "time": "2022-04-08T20:13:53+00:00"
         },
         {
             "name": "laravel/framework",
@@ -1296,12 +1285,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Opis\\Closure\\": "src/"
-                },
                 "files": [
                     "functions.php"
-                ]
+                ],
+                "psr-4": {
+                    "Opis\\Closure\\": "src/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -1630,12 +1619,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Ramsey\\Uuid\\": "src/"
-                },
                 "files": [
                     "src/functions.php"
-                ]
+                ],
+                "psr-4": {
+                    "Ramsey\\Uuid\\": "src/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -2653,12 +2642,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Symfony\\Polyfill\\Ctype\\": ""
-                },
                 "files": [
                     "bootstrap.php"
-                ]
+                ],
+                "psr-4": {
+                    "Symfony\\Polyfill\\Ctype\\": ""
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -2974,12 +2963,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Symfony\\Polyfill\\Mbstring\\": ""
-                },
                 "files": [
                     "bootstrap.php"
-                ]
+                ],
+                "psr-4": {
+                    "Symfony\\Polyfill\\Mbstring\\": ""
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -3968,12 +3957,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "BeyondCode\\DumpServer\\": "src"
-                },
                 "files": [
                     "helpers.php"
-                ]
+                ],
+                "psr-4": {
+                    "BeyondCode\\DumpServer\\": "src"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -4127,12 +4116,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Facade\\FlareClient\\": "src"
-                },
                 "files": [
                     "src/helpers.php"
-                ]
+                ],
+                "psr-4": {
+                    "Facade\\FlareClient\\": "src"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -5632,13 +5621,13 @@
             },
             "type": "library",
             "autoload": {
+                "files": [
+                    "HighlightUtilities/functions.php"
+                ],
                 "psr-0": {
                     "Highlight\\": "",
                     "HighlightUtilities\\": ""
-                },
-                "files": [
-                    "HighlightUtilities/functions.php"
-                ]
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -6387,12 +6376,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Symfony\\Polyfill\\Php70\\": ""
-                },
                 "files": [
                     "bootstrap.php"
                 ],
+                "psr-4": {
+                    "Symfony\\Polyfill\\Php70\\": ""
+                },
                 "classmap": [
                     "Resources/stubs"
                 ]
