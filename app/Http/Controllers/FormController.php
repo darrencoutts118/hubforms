@@ -14,8 +14,8 @@ class FormController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\FormSubmissionRequest $request
-     * @param  \App\Models\Form                         $form
+     * @param  \App\Http\Requests\FormSubmissionRequest  $request
+     * @param  \App\Models\Form  $form
      * @return \Illuminate\Http\Response
      */
     public function store(FormSubmissionRequest $request, Form $form)
@@ -38,8 +38,8 @@ class FormController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param \App\Models\Form         $form
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Form  $form
      * @return \Illuminate\Http\Response
      */
     public function show(Request $request, Form $form)
